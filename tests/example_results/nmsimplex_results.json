@@ -1,0 +1,11 @@
+{
+    "best_coords": [
+        3.141592649445112,
+        2.2749999841912176
+    ],
+    "best_value": 0.39788735772973816,
+    "best_iter": 88,
+    "total_iter": 88,
+    "message": "Optimization terminated successfully.",
+    "raw_results": "N/A"
+}
