@@ -17,15 +17,15 @@ class SQSnobFitResultsStrategy(ReadResultsStrategy):
         """
 
         with open(result_file, "r") as fin:
-            nmsimplex_results = json.load(fin)
+            sqsnobfit_results = json.load(fin)
 
         results = Results()
 
-        results.best_coords = nmsimplex_results["best_coords"]
-        results.best_value = nmsimplex_results["best_value"]
-        results.best_iter = nmsimplex_results["best_iter"]
-        results.total_iter = nmsimplex_results["total_iter"]
-        results.message = nmsimplex_results["message"]
-        results.raw_results = nmsimplex_results["raw_results"]
+        results.best_coords = sqsnobfit_results["best_coords"]
+        results.best_value = sqsnobfit_results["best_value"]
+        results.best_iter = sqsnobfit_results["best_iter"]
+        results.total_iter = sqsnobfit_results["total_iter"]
+        results.message = sqsnobfit_results["message"]
+        results.raw_results = sqsnobfit_results["raw_results"]
 
         return results
