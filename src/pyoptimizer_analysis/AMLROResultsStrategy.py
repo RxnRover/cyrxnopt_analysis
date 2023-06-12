@@ -1,15 +1,36 @@
 from pyoptimizer_analysis.ReadResultsStrategy import ReadResultsStrategy
-
+import pandas as pd
+import numpy as np
+from pyoptimizer_analysis.Results import Results
 
 class AMLROResultsStrategy(ReadResultsStrategy):
-    def analyze_results(self, result_file: str):
-        raise RuntimeError("ReadResultsStrategy.analyze_results not overridden!")
+    def analyze_results(self, result_file: str)->Results:
+        """Analyzes results from the AMLRO optimizer.
 
-        # results = Results()
+        :param result_file: File to read the results from. This must be
+                            formatted as a JSON file.
+        :type result_file: str
 
-        # results.best_coords = [0, 1]
-        # results["approx_min"] =
-        # results["approx_best_value"] =
-        # results["approx_best_iter"] =
+        :return: Aggregated results from the optimization.
+        :rtype: Results
+        """
+        
 
-        # return results
+        results = Results()
+        data = pd.read_csv(result_file)
+
+        max_val = -data['Yield'].max()
+        idmax = data['Yield'].idxmax() + 1
+        if idmax > 20 :
+            idmax = idmax - 20
+        else:
+            idmax = 0
+
+        best_conditions = data.loc[data['Yield'].idxmax()][:-1].values.tolist()
+
+        results.best_coords = best_conditions
+        results.best_value = max_val
+        results.best_iter = idmax
+        results.total_iter = 100
+
+        return results
