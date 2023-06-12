@@ -52,8 +52,7 @@ def main():
 
     results = analyzer.analyze_results(args.results_file)
 
-    print(results)
-    print(json.dumps(results))
+    print(json.dumps(results, indent=4))
 
 
 if __name__ == "__main__":
