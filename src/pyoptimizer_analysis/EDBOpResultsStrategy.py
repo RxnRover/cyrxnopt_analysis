@@ -16,14 +16,14 @@ class EDBOpResultsStrategy(ReadResultsStrategy):
         
         results = Results()
         df = pd.read_csv(result_file)
-        data = df[df['priority']==-1]
+
+        data = df[df['priority'] == -1]
         data = data.drop('priority', axis=1)
         data = data.reset_index(drop=True)
         data['yield'] = pd.to_numeric(data['yield'])
-        print(data)
 
         max_val = -data['yield'].max()
-        idmax = data['yield'].idxmax()+1
+        idmax = data['yield'].idxmax() + 1
 
         best_conditions = data.loc[data['yield'].idxmax()][:-1].values.tolist()
 
@@ -31,4 +31,5 @@ class EDBOpResultsStrategy(ReadResultsStrategy):
         results.best_value = max_val
         results.best_iter = idmax
         results.total_iter = 100
+
         return results

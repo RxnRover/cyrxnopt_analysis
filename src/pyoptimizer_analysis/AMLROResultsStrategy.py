@@ -20,7 +20,7 @@ class AMLROResultsStrategy(ReadResultsStrategy):
         data = pd.read_csv(result_file)
 
         max_val = -data['Yield'].max()
-        idmax = data['Yield'].idxmax()+1
+        idmax = data['Yield'].idxmax() + 1
         if idmax > 20 :
             idmax = idmax - 20
         else:
@@ -34,4 +34,3 @@ class AMLROResultsStrategy(ReadResultsStrategy):
         results.total_iter = 100
 
         return results
-        #raise RuntimeError("ReadResultsStrategy.analyze_results not overridden!")
