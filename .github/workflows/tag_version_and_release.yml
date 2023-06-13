@@ -10,4 +10,4 @@ on:
 
 jobs:
   tag_version_and_release:
-    uses: RxnRover/.github/.github/workflows/share/tag_version_and_release.yml@main
+    uses: RxnRover/.github/.github/workflows/tag_version_and_release_main.yml@main
