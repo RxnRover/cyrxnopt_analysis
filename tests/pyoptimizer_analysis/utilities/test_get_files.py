@@ -6,9 +6,9 @@ from pyoptimizer_analysis.utilities.get_files import get_files
 class TestGetFiles(unittest.TestCase):
     def test_get_files_top_dir(self):
         results_directory = "tests/example_results"
-        results_pattern = r"[a-zA-z0-9]+_results.json"
+        results_pattern = r"[a-zA-z0-9]+_test.tmp"
 
-        corr_file_list = ["tests/example_results/nmsimplex_results.json"]
+        corr_file_list = ["tests/example_results/config_test.tmp"]
 
         file_list = get_files(results_directory, results_pattern)
 
@@ -16,9 +16,9 @@ class TestGetFiles(unittest.TestCase):
 
     def test_get_files_recusively(self):
         results_directory = "tests"
-        results_pattern = r"[a-zA-z0-9]+_results.json"
+        results_pattern = r"[a-zA-z0-9]+_test.tmp"
 
-        corr_file_list = ["tests/example_results/nmsimplex_results.json"]
+        corr_file_list = ["tests/example_results/config_test.tmp"]
 
         file_list = get_files(
             results_directory, results_pattern, recursive=True
