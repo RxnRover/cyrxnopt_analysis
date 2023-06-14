@@ -4,8 +4,14 @@ import json
 from pyoptimizer_analysis.AMLROResultsStrategy import AMLROResultsStrategy
 from pyoptimizer_analysis.Analyzer import Analyzer
 from pyoptimizer_analysis.EDBOpResultsStrategy import EDBOpResultsStrategy
-from pyoptimizer_analysis.NMSimplexResultsStrategy import NMSimplexResultsStrategy
-from pyoptimizer_analysis.SQSnobFitResultsStrategy import SQSnobFitResultsStrategy
+from pyoptimizer_analysis.NMSimplexResultsStrategy import (
+    NMSimplexResultsStrategy,
+)
+from pyoptimizer_analysis.SQSnobFitResultsStrategy import (
+    SQSnobFitResultsStrategy,
+)
+
+# from pyoptimizer_analysis.utilities.minima_table import foo_min
 
 
 def parse_args() -> argparse.Namespace:
@@ -15,13 +21,15 @@ def parse_args() -> argparse.Namespace:
 
     # parser.add_argument("output_dir", help="Location for output data.")
     parser.add_argument("optimizer", help="Optimizer to use.")
-    parser.add_argument("results_file", help="Location for results file to analyze.")
+    parser.add_argument(
+        "results_dir", help="Location for results file to analyze."
+    )
     # parser.add_argument(
     #     "--default-config",
     #     action="store_true",
     #     help=(
-    #         "Generate config file with default values at the location given by"
-    #         " output_dir."
+    #         "Generate config file with default values at the location given"
+    #         "by output_dir."
     #     ),
     # )
 
@@ -46,11 +54,23 @@ def main():
     elif optimizer_lower == "sqsnobfit":
         results_strategy = SQSnobFitResultsStrategy()
     else:
-        raise RuntimeError("Invalid optimizer provided: {}".format(args.optimizer))
+        raise RuntimeError(
+            "Invalid optimizer provided: {}".format(args.optimizer)
+        )
 
     analyzer = Analyzer(results_strategy)
 
-    results = analyzer.analyze_results(args.results_file)
+    results = analyzer.analyze_directory(args.results_dir)
+
+    # Grab function name from directory name
+
+    # foo_min["function_name"]
+
+    # Clearance().calculate(results)
+    # Clearance.value
+
+    # SolveTime().calculate(results)
+    # SolveTime.value
 
     print(json.dumps(results, indent=4))
 
