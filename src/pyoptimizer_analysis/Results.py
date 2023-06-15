@@ -1,6 +1,14 @@
+from math import nan
+
+
 class Results(dict):
     def __init__(self):
         self["best_coords"] = []
+        self["best_value"] = nan
+        self["best_iter"] = -1
+        self["total_iter"] = -1
+        self["message"] = ""
+        self["raw_results"] = None
 
     @property
     def best_coords(self):
