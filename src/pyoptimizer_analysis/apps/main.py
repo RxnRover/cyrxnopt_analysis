@@ -1,6 +1,7 @@
 import argparse
 import json
 
+from pyoptimizer_analysis.alerts.OverBudget import OverBudget
 from pyoptimizer_analysis.AMLROResultsStrategy import AMLROResultsStrategy
 from pyoptimizer_analysis.Analyzer import Analyzer
 from pyoptimizer_analysis.EDBOpResultsStrategy import EDBOpResultsStrategy
@@ -61,6 +62,9 @@ def main():
     analyzer = Analyzer(results_strategy)
 
     results = analyzer.analyze_directory(args.results_dir)
+
+    # Check if any of the results went over the budget
+    OverBudget(100, throw=True).process(results)
 
     # Grab function name from directory name
 
