@@ -1,13 +1,13 @@
 import unittest
 
 from pyoptimizer_analysis.alerts.OverBudget import OverBudget
-from pyoptimizer_analysis.Results import Results
+from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 
 
 class TestOverBudget(unittest.TestCase):
     def test_no_throw_equals_budget_limit(self):
         budget = 100
-        result = Results()
+        result = OptimizerResult()
         result.total_iter = budget
 
         alert = OverBudget(budget, throw=True)
@@ -18,7 +18,7 @@ class TestOverBudget(unittest.TestCase):
     def test_no_throw_lessthan_budget_limit(self):
         budget = 100
 
-        result = Results()
+        result = OptimizerResult()
         result.total_iter = budget - 1
 
         alert = OverBudget(budget, throw=True)
@@ -29,7 +29,7 @@ class TestOverBudget(unittest.TestCase):
     def test_throw_greaterthan_budget_limit(self):
         budget = 100
 
-        result = Results()
+        result = OptimizerResult()
         result.total_iter = budget + 1
 
         alert = OverBudget(budget, throw=True)
@@ -39,9 +39,9 @@ class TestOverBudget(unittest.TestCase):
     def test_error_list(self):
         budget = 100
 
-        result1 = Results()
-        result2 = Results()
-        result3 = Results()
+        result1 = OptimizerResult()
+        result2 = OptimizerResult()
+        result3 = OptimizerResult()
         result1.total_iter = budget
         result2.total_iter = budget + 1
         result3.total_iter = budget - 1

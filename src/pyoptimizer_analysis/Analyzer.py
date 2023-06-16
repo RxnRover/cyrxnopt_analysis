@@ -1,7 +1,7 @@
 from typing import List
 
+from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 from pyoptimizer_analysis.ReadResultsStrategy import ReadResultsStrategy
-from pyoptimizer_analysis.Results import Results
 from pyoptimizer_analysis.utilities.get_files import get_files
 
 
@@ -9,7 +9,7 @@ class Analyzer:
     def __init__(self, read_strategy: ReadResultsStrategy):
         self._read_strategy = read_strategy
 
-    def analyze_results(self, results_file: str) -> Results:
+    def analyze_results(self, results_file: str) -> OptimizerResult:
         """Analyzes the given file, accumulating the results for an
         optimization algorithm.
 
@@ -29,7 +29,7 @@ class Analyzer:
         results_directory: str,
         file_pattern: str = r"*",
         recursive: bool = False,
-    ) -> List[Results]:
+    ) -> List[OptimizerResult]:
         """Analyzes all files in the given directory that match the provided
         regex pattern.
 
@@ -57,6 +57,7 @@ class Analyzer:
         results = []
         for result_file in files:
             result = self.analyze_results(result_file)
+            result.filename = result_file
 
             results.append(result)
 

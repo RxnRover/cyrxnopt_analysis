@@ -1,7 +1,7 @@
 from typing import List
 
 from pyoptimizer_analysis.alerts.Alert import Alert
-from pyoptimizer_analysis.Results import Results
+from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 
 
 class OverBudget(Alert):
@@ -11,7 +11,7 @@ class OverBudget(Alert):
         self._budget = budget
         self._errors = []
 
-    def process(self, results: List[Results]):
+    def process(self, results: List[OptimizerResult]):
         for result in results:
             # Skip the result if it is not tripping the alarm
             if result.total_iter <= self.budget:
@@ -36,5 +36,5 @@ class OverBudget(Alert):
         self._budget = value
 
     @property
-    def errors(self) -> List[Results]:
+    def errors(self) -> List[OptimizerResult]:
         return self._errors

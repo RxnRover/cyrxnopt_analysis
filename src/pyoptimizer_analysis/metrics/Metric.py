@@ -1,14 +1,14 @@
 from abc import ABC
 from typing import Any, List
 
-from pyoptimizer_analysis.Results import Results
+from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 
 
 class Metric(ABC):
     def __init__(self):
         self._result = None
 
-    def calculate(self, results: List[Results]):
+    def calculate(self, results: List[OptimizerResult]):
         """Calculate the metric.
 
         :param results: Results to use when calculating the metric

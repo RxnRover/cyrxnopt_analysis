@@ -1,7 +1,7 @@
 from typing import List
 
 from pyoptimizer_analysis.metrics.Metric import Metric
-from pyoptimizer_analysis.Results import Results
+from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 
 
 class Clearance(Metric):
@@ -16,7 +16,7 @@ class Clearance(Metric):
 
         super(Clearance, self).__init__()
 
-    def calculate(self, results: List[Results]):
+    def calculate(self, results: List[OptimizerResult]):
         """Calculate the metric.
 
         :param results: Results to use when calculating the metric

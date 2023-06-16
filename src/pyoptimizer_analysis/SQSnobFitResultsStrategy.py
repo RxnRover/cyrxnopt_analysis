@@ -1,11 +1,11 @@
 import json
 
+from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 from pyoptimizer_analysis.ReadResultsStrategy import ReadResultsStrategy
-from pyoptimizer_analysis.Results import Results
 
 
 class SQSnobFitResultsStrategy(ReadResultsStrategy):
-    def analyze_results(self, result_file: str) -> Results:
+    def analyze_results(self, result_file: str) -> OptimizerResult:
         """Analyzes results from the SQSnobFit optimizer.
 
         :param result_file: File to read the results from. This must be
@@ -19,7 +19,7 @@ class SQSnobFitResultsStrategy(ReadResultsStrategy):
         with open(result_file, "r") as fin:
             sqsnobfit_results = json.load(fin)
 
-        results = Results()
+        results = OptimizerResult()
 
         results.best_coords = sqsnobfit_results["best_coords"]
         results.best_value = sqsnobfit_results["best_value"]

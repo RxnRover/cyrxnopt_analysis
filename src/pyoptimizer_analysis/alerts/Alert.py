@@ -1,7 +1,7 @@
 from abc import ABC
 from typing import List
 
-from pyoptimizer_analysis.Results import Results
+from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 
 
 class Alert(ABC):
@@ -16,7 +16,7 @@ class Alert(ABC):
         self._throw = throw
         self._triggered = False
 
-    def process(self, results: List[Results]):
+    def process(self, results: List[OptimizerResult]):
         """Process the results, triggering the alarm if certain conditions
         are met.
 
