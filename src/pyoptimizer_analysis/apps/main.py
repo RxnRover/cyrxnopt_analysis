@@ -1,18 +1,20 @@
 import argparse
-import json
 
 from pyoptimizer_analysis.alerts.OverBudget import OverBudget
 from pyoptimizer_analysis.AMLROResultsStrategy import AMLROResultsStrategy
 from pyoptimizer_analysis.Analyzer import Analyzer
 from pyoptimizer_analysis.EDBOpResultsStrategy import EDBOpResultsStrategy
+from pyoptimizer_analysis.metrics.Clearance import Clearance
+
+# from pyoptimizer_analysis.metrics.SolveTime import SolveTime
 from pyoptimizer_analysis.NMSimplexResultsStrategy import (
     NMSimplexResultsStrategy,
 )
 from pyoptimizer_analysis.SQSnobFitResultsStrategy import (
     SQSnobFitResultsStrategy,
 )
-
-# from pyoptimizer_analysis.utilities.minima_table import foo_min
+from pyoptimizer_analysis.transforms.GetFunctionName import GetFunctionName
+from pyoptimizer_analysis.utilities.optima_table import optima
 
 
 def parse_args() -> argparse.Namespace:
@@ -61,22 +63,41 @@ def main():
 
     analyzer = Analyzer(results_strategy)
 
-    results = analyzer.analyze_directory(args.results_dir)
+    results = analyzer.analyze_directory(
+        args.results_dir, file_pattern=r"results.json", recursive=True
+    )
+
+    # Data validation
 
     # Check if any of the results went over the budget
-    OverBudget(100, throw=True).process(results)
+    over_budget = OverBudget(100, throw=False)
+    over_budget.process(results)
+    print("Number of errors: ", len(over_budget.errors))
 
-    # Grab function name from directory name
+    for error in over_budget.errors:
+        print(error.filename)
+        print(error.total_iter)
 
-    # foo_min["function_name"]
+    if len(over_budget.errors):
+        raise RuntimeError("Over budget!")
 
-    # Clearance().calculate(results)
-    # Clearance.value
+    # Data transforms
+
+    # Get the function used for each result
+    results = GetFunctionName.map(results)
+
+    # Metric calculations
+
+    for foo in optima.keys():
+        filtered_results = [x for x in results if x["function"] == foo]
+        print("# of results for {}: {}".format(foo, len(filtered_results)))
+
+        clearance = Clearance(optima[foo])
+        clearance.calculate(filtered_results)
+        print("Clearance rate: ", clearance.result)
 
     # SolveTime().calculate(results)
     # SolveTime.value
-
-    print(json.dumps(results, indent=4))
 
 
 if __name__ == "__main__":

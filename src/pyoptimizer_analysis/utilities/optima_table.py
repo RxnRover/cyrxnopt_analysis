@@ -8,7 +8,7 @@ from benchmarking.functions import (
     six_hump_camel,
 )
 
-foo_min = {
+optima = {
     "branin": branin.branin_min(),
     "goldstein_price": goldstein_price.goldstein_price_min(),
     "hartmann3d": hartmann.hartmann_min(dimensions=3),
