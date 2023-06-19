@@ -16,7 +16,9 @@ class GetFunctionName(Transform):
         :type results: List[OptimizerResult]
         """
 
-        results = map(GetFunctionName._get_function_name, results)
+        results = list(map(GetFunctionName._get_function_name, results))
+
+        return results
 
     def _get_function_name(result):
         """Extracts the function name from the containing directory of
@@ -30,7 +32,7 @@ class GetFunctionName(Transform):
         """
 
         directory = os.path.basename(os.path.dirname(result.filename))
-        match = re.match(r"([a-zA-Z0-9]+)_[0-9]+", directory)
+        match = re.match(r"([a-zA-Z0-9_]+)_[0-9]+", directory)
         foo_name = match[1]
 
         result["function"] = foo_name
