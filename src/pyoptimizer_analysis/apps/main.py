@@ -5,8 +5,7 @@ from pyoptimizer_analysis.AMLROResultsStrategy import AMLROResultsStrategy
 from pyoptimizer_analysis.Analyzer import Analyzer
 from pyoptimizer_analysis.EDBOpResultsStrategy import EDBOpResultsStrategy
 from pyoptimizer_analysis.metrics.Clearance import Clearance
-
-# from pyoptimizer_analysis.metrics.SolveTime import SolveTime
+from pyoptimizer_analysis.metrics.SolveTime import SolveTime
 from pyoptimizer_analysis.NMSimplexResultsStrategy import (
     NMSimplexResultsStrategy,
 )
@@ -96,8 +95,9 @@ def main():
         clearance.calculate(filtered_results)
         print("Clearance rate: ", clearance.result)
 
-    # SolveTime().calculate(results)
-    # SolveTime.value
+    solve_time = SolveTime()
+    solve_time.calculate(results)
+    print("Solve time: ", solve_time.result)
 
 
 if __name__ == "__main__":

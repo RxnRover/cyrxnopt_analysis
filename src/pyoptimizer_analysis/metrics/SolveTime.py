@@ -5,12 +5,14 @@ from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 
 
 class SolveTime(Metric):
-    def __init__(self):
+    def __init__(self, budget: int = 100):
         """Create a SolveTime metric object.
 
         :param optimum: Optimum to check against results.
         :type optimum: float
         """
+
+        self._budget = 100
 
         super(SolveTime, self).__init__()
 
@@ -22,4 +24,14 @@ class SolveTime(Metric):
         :raises RuntimeError: This function must be overridden by chilren.
         """
 
-        raise RuntimeError("Metric.calculate not overridden!")
+        solve_time = 0
+        count = 0
+
+        for result in results:
+            if result.best_iter != self._budget:
+                solve_time += result.best_iter
+                count += 1
+
+        solve_time /= count
+
+        self._result = solve_time
