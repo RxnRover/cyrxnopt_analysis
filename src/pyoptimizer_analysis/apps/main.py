@@ -95,7 +95,7 @@ def main():
         clearance.calculate(filtered_results)
         print("Clearance rate: ", clearance.result)
 
-        solve_time = SolveTime()
+        solve_time = SolveTime(optima[foo])
         solve_time.calculate(filtered_results)
         print("Solve time: ", solve_time.result)
 
