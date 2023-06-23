@@ -95,9 +95,9 @@ def main():
         clearance.calculate(filtered_results)
         print("Clearance rate: ", clearance.result)
 
-    solve_time = SolveTime()
-    solve_time.calculate(results)
-    print("Solve time: ", solve_time.result)
+        solve_time = SolveTime()
+        solve_time.calculate(filtered_results)
+        print("Solve time: ", solve_time.result)
 
 
 if __name__ == "__main__":

@@ -28,10 +28,14 @@ class SolveTime(Metric):
         count = 0
 
         for result in results:
-            if result.best_iter != self._budget:
-                solve_time += result.best_iter
-                count += 1
+            # if result.best_iter != self._budget:
+            solve_time += result.best_iter
+            count += 1
 
-        solve_time /= count
+        # Exit early if no results found a satisfactory solution
+        if count == 0:
+            solve_time = 0
+        else:
+            solve_time /= count
 
         self._result = solve_time
