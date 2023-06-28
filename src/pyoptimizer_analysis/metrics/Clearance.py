@@ -37,7 +37,7 @@ class Clearance(Metric):
                 opt_error /= self._optimum
 
             # If the error is below the threshold, count it
-            if opt_error < self._threshold:
+            if abs(opt_error) < self._threshold:
                 success_count += 1
 
         # Store the success rate
