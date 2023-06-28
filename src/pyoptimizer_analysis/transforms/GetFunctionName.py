@@ -32,7 +32,16 @@ class GetFunctionName(Transform):
         """
 
         directory = os.path.basename(os.path.dirname(result.filename))
+        print(directory)
         match = re.match(r"([a-zA-Z0-9_]+)_[0-9]+", directory)
+
+        if not match:
+            raise RuntimeError(
+                "No function name found in file path! Path: {}".format(
+                    result.filename
+                )
+            )
+
         foo_name = match[1]
 
         result["function"] = foo_name
