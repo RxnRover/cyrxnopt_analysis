@@ -29,7 +29,7 @@ class TestClearance(unittest.TestCase):
         metric = Clearance(0.39788735772973816)
         metric.calculate(results)
 
-        self.assertAlmostEqual(0.6667, metric.result)
+        self.assertAlmostEqual(2 / 3, metric.result)
 
     def test_map_no_valid_results(self):
         result = OptimizerResult()
@@ -67,4 +67,4 @@ class TestClearance(unittest.TestCase):
         metric = Clearance(0)
         metric.calculate(results)
 
-        self.assertAlmostEqual(0.5, metric.result)
+        self.assertAlmostEqual(1 / 2, metric.result)
