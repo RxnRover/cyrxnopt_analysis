@@ -39,7 +39,7 @@ class SolveTime(Metric):
                 opt_error /= self._optimum
 
             # If the error is below the threshold, count it
-            if opt_error < self._threshold:
+            if abs(opt_error) < self._threshold:
                 solve_time += result.best_iter
                 count += 1
 
