@@ -4,7 +4,7 @@ from pyoptimizer_analysis.metrics.SolveTime import SolveTime
 from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 
 
-class TestGetFunctionName(unittest.TestCase):
+class TestSolveTime(unittest.TestCase):
     def test_map_invalid_valid_mixed_results(self):
         # Successful optimization
         result = OptimizerResult()
