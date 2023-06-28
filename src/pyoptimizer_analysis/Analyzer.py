@@ -22,6 +22,9 @@ class Analyzer:
         :rtype: Results
         """
 
+        results = self._read_strategy.analyze_results(results_file)
+        results.filename = results_file
+
         return self._read_strategy.analyze_results(results_file)
 
     def analyze_directory(
@@ -57,7 +60,6 @@ class Analyzer:
         results = []
         for result_file in files:
             result = self.analyze_results(result_file)
-            result.filename = result_file
 
             results.append(result)
 
