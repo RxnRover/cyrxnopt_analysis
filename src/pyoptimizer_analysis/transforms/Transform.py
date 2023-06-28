@@ -13,4 +13,4 @@ class Transform(ABC):
         :raises RuntimeError: This function must be overridden by chilren.
         """
 
-        raise RuntimeError("Transform.map not overridden!")
+        raise RuntimeError("Transform.map not overridden!")  # pragma: no cover
