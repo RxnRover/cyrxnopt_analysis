@@ -16,7 +16,9 @@ class Metric(ABC):
         :raises RuntimeError: This function must be overridden by chilren.
         """
 
-        raise RuntimeError("Metric.calculate not overridden!")
+        raise RuntimeError(
+            "Metric.calculate not overridden!"
+        )  # pragma: no cover
 
     @property
     def result(self) -> Any:
