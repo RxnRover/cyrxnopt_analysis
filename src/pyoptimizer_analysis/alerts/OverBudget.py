@@ -20,6 +20,9 @@ class OverBudget(Alert):
             # Store the result that is tripping the alarm
             self._errors.append(result)
 
+            # Set the triggered property
+            self._triggered = True
+
             # Throw an error
             if self.throw:
                 raise RuntimeError("Over budget!")

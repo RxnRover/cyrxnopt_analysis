@@ -25,7 +25,9 @@ class Alert(ABC):
         :raises RuntimeError: This function must be overridden in children.
         """
 
-        raise RuntimeError("Alert.process is not overridden!")
+        raise RuntimeError(
+            "Alert.process is not overridden!"
+        )  # pragma: no cover
 
     @property
     def throw(self) -> bool:

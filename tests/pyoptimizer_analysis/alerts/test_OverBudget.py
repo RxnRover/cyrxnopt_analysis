@@ -36,6 +36,31 @@ class TestOverBudget(unittest.TestCase):
 
         self.assertRaises(RuntimeError, alert.process, [result])
 
+    def test_use_budget_property(self):
+        budget = 100
+
+        result = OptimizerResult()
+        # This will throw with the original budget
+        result.total_iter = budget + 1
+
+        alert = OverBudget(budget, throw=True)
+
+        # However, the new budget should allow the previously over-budget
+        # iterations
+        alert.budget = result.total_iter + 10
+
+        # This shouldn't throw
+        alert.process([result])
+
+    def test_set_invalid_budget_property_zero(self):
+        alert = OverBudget(100, throw=True)
+
+        # Negative and zero budgets are not allowed
+        with self.assertRaises(ValueError):
+            alert.budget = 0
+        with self.assertRaises(ValueError):
+            alert.budget = -1
+
     def test_error_list(self):
         budget = 100
 
@@ -50,4 +75,5 @@ class TestOverBudget(unittest.TestCase):
 
         alert.process([result1, result2, result3])
 
+        self.assertTrue(alert.triggered)
         self.assertListEqual(alert.errors, [result2])
