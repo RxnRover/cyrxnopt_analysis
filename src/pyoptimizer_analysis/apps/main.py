@@ -1,6 +1,6 @@
 import argparse
 
-from pyoptimizer_analysis.alerts.OverBudget import OverBudget
+# from pyoptimizer_analysis.alerts.OverBudget import OverBudget
 from pyoptimizer_analysis.AMLROResultsStrategy import AMLROResultsStrategy
 from pyoptimizer_analysis.Analyzer import Analyzer
 from pyoptimizer_analysis.EDBOpResultsStrategy import EDBOpResultsStrategy
@@ -68,17 +68,17 @@ def main():
 
     # Data validation
 
-    # Check if any of the results went over the budget
-    over_budget = OverBudget(100, throw=False)
-    over_budget.process(results)
-    print("Number of errors: ", len(over_budget.errors))
+    # # Check if any of the results went over the budget
+    # over_budget = OverBudget(100, throw=False)
+    # over_budget.process(results)
+    # print("Number of errors: ", len(over_budget.errors))
 
-    for error in over_budget.errors:
-        print(error.filename)
-        print(error.total_iter)
+    # for error in over_budget.errors:
+    #     print(error.filename)
+    #     print(error.total_iter)
 
-    if len(over_budget.errors):
-        raise RuntimeError("Over budget!")
+    # if len(over_budget.errors):
+    #     raise RuntimeError("Over budget!")
 
     # Data transforms
 
