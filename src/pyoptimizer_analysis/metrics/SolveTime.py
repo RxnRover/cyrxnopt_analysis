@@ -25,6 +25,7 @@ class SolveTime(Metric):
         self._total_cycles = len(results)
 
         self._solve_time = self.total_iterations / self.total_cycles
+        self._result = self._solve_time
 
     @property
     def solve_time(self) -> float:
