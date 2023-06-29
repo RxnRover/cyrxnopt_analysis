@@ -30,6 +30,11 @@ class TestClearance(unittest.TestCase):
         metric.calculate(results)
 
         self.assertAlmostEqual(2 / 3, metric.result)
+        self.assertAlmostEqual(2 / 3, metric.clearance_rate)
+        self.assertEqual(2, metric.success_count)
+        self.assertEqual(1, metric.fail_count)
+        self.assertListEqual(metric.successful_results, [result, result2])
+        self.assertListEqual(metric.failed_results, [result3])
 
     def test_map_no_valid_results(self):
         result = OptimizerResult()
@@ -48,6 +53,11 @@ class TestClearance(unittest.TestCase):
         metric.calculate(results)
 
         self.assertEqual(0, metric.result)
+        self.assertAlmostEqual(0, metric.clearance_rate)
+        self.assertEqual(0, metric.success_count)
+        self.assertEqual(2, metric.fail_count)
+        self.assertListEqual(metric.successful_results, [])
+        self.assertListEqual(metric.failed_results, [result, result2])
 
     def test_map_optimum_zero(self):
         # Successful optimization
@@ -68,3 +78,8 @@ class TestClearance(unittest.TestCase):
         metric.calculate(results)
 
         self.assertAlmostEqual(1 / 2, metric.result)
+        self.assertAlmostEqual(1 / 2, metric.clearance_rate)
+        self.assertEqual(1, metric.success_count)
+        self.assertEqual(1, metric.fail_count)
+        self.assertListEqual(metric.successful_results, [result])
+        self.assertListEqual(metric.failed_results, [result2])
