@@ -5,15 +5,8 @@ from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 
 
 class SolveTime(Metric):
-    def __init__(self, optimum: float, threshold: float = 0.01):
-        """Create a Clearance metric object.
-
-        :param optimum: Optimum to check against results.
-        :type optimum: float
-        :param threshold: Optimization error that an optimizer must achieve
-                          to be considered a "success". Defaults to 0.01.
-        :type threshold: float, optional
-        """
+    def __init__(self):
+        """Create a Clearance metric object."""
 
         self._total_iterations = 0
         self._solve_time = 0
