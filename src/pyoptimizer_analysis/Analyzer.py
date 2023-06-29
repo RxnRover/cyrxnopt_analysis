@@ -25,7 +25,7 @@ class Analyzer:
         results = self._read_strategy.analyze_results(results_file)
         results.filename = results_file
 
-        return self._read_strategy.analyze_results(results_file)
+        return results
 
     def analyze_directory(
         self,

@@ -15,8 +15,8 @@ class SolveTime(Metric):
         :type threshold: float, optional
         """
 
-        self._optimum = optimum
-        self._threshold = threshold
+        self._total_iterations = 0
+        self._solve_time = 0
 
         super(SolveTime, self).__init__()
 
@@ -28,23 +28,40 @@ class SolveTime(Metric):
         :raises RuntimeError: This function must be overridden by chilren.
         """
 
-        solve_time = 0
-        count = 0
+        self._total_iterations = sum([result.best_iter for result in results])
+        self._total_cycles = len(results)
 
-        # Loop over all results, testing if each one is "successful"
-        for result in results:
-            # Calculate the error as: (correct - predicted) / correct
-            opt_error = self._optimum - result.best_value
-            if self._optimum != 0:
-                opt_error /= self._optimum
+        self._solve_time = self.total_iterations / self.total_cycles
 
-            # If the error is below the threshold, count it
-            if abs(opt_error) < self._threshold:
-                solve_time += result.best_iter
-                count += 1
+    @property
+    def solve_time(self) -> float:
+        """Averaged optimization iterations needed to reach a successful\
+        optimization.
 
-        # Store the success rate
-        if count == 0:
-            self._result = 0
-        else:
-            self._result = solve_time / count
+        :return: Average optimization iteration count.
+        :rtype: float
+        """
+
+        return self._solve_time
+
+    @property
+    def total_cycles(self) -> int:
+        """Number of optimization cycle results used for calculating this
+        metric.
+
+        :return: Total cycle count.
+        :rtype: int
+        """
+
+        return self._total_cycles
+
+    @property
+    def total_iterations(self) -> int:
+        """Total number of optimization iterations through all of the results
+        used to reach the best result.
+
+        :return: Total iteration count.
+        :rtype: int
+        """
+
+        return self._total_iterations

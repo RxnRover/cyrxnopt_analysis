@@ -1,5 +1,7 @@
 import argparse
 
+import pandas as pd
+
 # from pyoptimizer_analysis.alerts.OverBudget import OverBudget
 from pyoptimizer_analysis.AMLROResultsStrategy import AMLROResultsStrategy
 from pyoptimizer_analysis.Analyzer import Analyzer
@@ -87,17 +89,37 @@ def main():
 
     # Metric calculations
 
+    cleared_runs_tbl = pd.DataFrame(columns=["Cleared runs"])
+    iterations_tbl = pd.DataFrame(columns=["Iterations needed"])
+
+    cleared_runs_tbl["Cleared runs"] = [optimizer_lower]
+    iterations_tbl["Iterations needed"] = [optimizer_lower]
+
     for foo in optima.keys():
         filtered_results = [x for x in results if x["function"] == foo]
         print("# of results for {}: {}".format(foo, len(filtered_results)))
 
         clearance = Clearance(optima[foo])
         clearance.calculate(filtered_results)
-        print("Clearance rate: ", clearance.result)
+        print("Clearance rate: ", clearance.clearance_rate)
 
         solve_time = SolveTime(optima[foo])
-        solve_time.calculate(filtered_results)
-        print("Solve time: ", solve_time.result)
+        solve_time.calculate(clearance.successful_results)
+        print("Solve time: ", solve_time.solve_time)
+
+        # Add data to the dataframes
+        cleared_runs_tbl[foo] = [clearance.success_count]
+        iterations_tbl[foo] = [solve_time.total_iterations]
+
+    cleared_runs_tbl.to_csv(
+        "data/{}_no_noise_clearance.csv".format(optimizer_lower), index=False
+    )
+    iterations_tbl.to_csv(
+        "data/{}_no_noise_iterations.csv".format(optimizer_lower), index=False
+    )
+
+    print(cleared_runs_tbl)
+    print(iterations_tbl)
 
 
 if __name__ == "__main__":

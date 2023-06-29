@@ -18,6 +18,12 @@ class Clearance(Metric):
         self._optimum = optimum
         self._threshold = threshold
 
+        # Default the property values
+        self._clearance_rate = 0
+        self._failed_results = []
+        self._success_count = 0
+        self._successful_results = []
+
         super(Clearance, self).__init__()
 
     def calculate(self, results: List[OptimizerResult]):
@@ -26,8 +32,6 @@ class Clearance(Metric):
         :param results: Results to use when calculating the metric
         :type results: List[Results]
         """
-
-        success_count = 0
 
         # Loop over all results, testing if each one is "successful"
         for result in results:
@@ -38,10 +42,64 @@ class Clearance(Metric):
 
             # If the error is below the threshold, count it
             if abs(opt_error) < self._threshold:
-                success_count += 1
+                self._successful_results.append(result)
+            else:
+                self._failed_results.append(result)
 
         # Store the success rate
-        if success_count == 0:
+        if self.success_count == 0:
+            self._clearance_rate = 0
             self._result = 0
         else:
-            self._result = success_count / len(results)
+            self._clearance_rate = self.success_count / len(results)
+            self._result = self.success_count / len(results)
+
+    @property
+    def clearance_rate(self) -> float:
+        """Success rate of the optimizer.
+
+        :return: Successful cycle rate out of the number of total cycles.
+        :rtype: float
+        """
+
+        return self._clearance_rate
+
+    @property
+    def fail_count(self) -> int:
+        """Number of failed cycles counted.
+
+        :return: Number of failed cycles
+        :rtype: int
+        """
+
+        return len(self._failed_results)
+
+    @property
+    def failed_results(self) -> List[OptimizerResult]:
+        """List of only results that failed.
+
+        :return: List of failed result objects.
+        :rtype: List[OptimizerResult]
+        """
+
+        return self._failed_results
+
+    @property
+    def success_count(self) -> int:
+        """Number of successful cycles counted.
+
+        :return: Number of successful cycles
+        :rtype: int
+        """
+
+        return len(self._successful_results)
+
+    @property
+    def successful_results(self) -> List[OptimizerResult]:
+        """List of only results that were successful.
+
+        :return: List of successful result objects.
+        :rtype: List[OptimizerResult]
+        """
+
+        return self._successful_results
