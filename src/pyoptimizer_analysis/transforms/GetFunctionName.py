@@ -32,7 +32,6 @@ class GetFunctionName(Transform):
         """
 
         directory = os.path.basename(os.path.dirname(result.filename))
-        print(directory)
         match = re.match(r"([a-zA-Z0-9_]+)_[0-9]+", directory)
 
         if not match:
