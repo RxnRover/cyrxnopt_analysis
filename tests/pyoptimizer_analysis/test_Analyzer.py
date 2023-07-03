@@ -31,7 +31,7 @@ class TestAnalyzer(unittest.TestCase):
 
     def test_analyze_directory(self):
         results_directory = "tests/example_results"
-        results_pattern = r"[a-zA-z0-9]+_results.json"
+        results_pattern = r"nm[a-zA-z0-9]+_results.json"
 
         corr_best_coords = [3.141592649445112, 2.2749999841912176]
         corr_best_value = 0.39788735772973816

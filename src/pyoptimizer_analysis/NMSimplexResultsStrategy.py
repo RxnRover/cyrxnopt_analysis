@@ -1,11 +1,11 @@
 import json
 
+from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 from pyoptimizer_analysis.ReadResultsStrategy import ReadResultsStrategy
-from pyoptimizer_analysis.Results import Results
 
 
 class NMSimplexResultsStrategy(ReadResultsStrategy):
-    def analyze_results(self, result_file: str) -> Results:
+    def analyze_results(self, result_file: str) -> OptimizerResult:
         """Analyzes results from the Nelder-Mead optimizer.
 
         :param result_file: File to read the results from. This must be
@@ -19,7 +19,7 @@ class NMSimplexResultsStrategy(ReadResultsStrategy):
         with open(result_file, "r") as fin:
             nmsimplex_results = json.load(fin)
 
-        results = Results()
+        results = OptimizerResult()
 
         results.best_coords = nmsimplex_results["best_coords"]
         results.best_value = nmsimplex_results["best_value"]

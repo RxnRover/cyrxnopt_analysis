@@ -1,9 +1,11 @@
-from pyoptimizer_analysis.ReadResultsStrategy import ReadResultsStrategy
-from pyoptimizer_analysis.Results import Results
 import pandas as pd
 
+from pyoptimizer_analysis.OptimizerResult import OptimizerResult
+from pyoptimizer_analysis.ReadResultsStrategy import ReadResultsStrategy
+
+
 class EDBOpResultsStrategy(ReadResultsStrategy):
-    def analyze_results(self, result_file: str)-> Results:
+    def analyze_results(self, result_file: str) -> OptimizerResult:
         """Analyzes results from the EDBOP optimizer.
 
         :param result_file: File to read the results from. This must be
@@ -13,19 +15,19 @@ class EDBOpResultsStrategy(ReadResultsStrategy):
         :return: Aggregated results from the optimization.
         :rtype: Results
         """
-        
-        results = Results()
+
+        results = OptimizerResult()
         df = pd.read_csv(result_file)
 
-        data = df[df['priority'] == -1]
-        data = data.drop('priority', axis=1)
+        data = df[df["priority"] == -1]
+        data = data.drop("priority", axis=1)
         data = data.reset_index(drop=True)
-        data['yield'] = pd.to_numeric(data['yield'])
+        data["yield"] = pd.to_numeric(data["yield"])
 
-        max_val = -data['yield'].max()
-        idmax = data['yield'].idxmax() + 1
+        max_val = -data["yield"].max()
+        idmax = data["yield"].idxmax() + 1
 
-        best_conditions = data.loc[data['yield'].idxmax()][:-1].values.tolist()
+        best_conditions = data.loc[data["yield"].idxmax()][:-1].values.tolist()
 
         results.best_coords = best_conditions
         results.best_value = max_val
