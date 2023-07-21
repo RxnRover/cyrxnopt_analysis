@@ -28,14 +28,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "results_dir", help="Location for results file to analyze."
     )
-    # parser.add_argument(
-    #     "--default-config",
-    #     action="store_true",
-    #     help=(
-    #         "Generate config file with default values at the location given"
-    #         "by output_dir."
-    #     ),
-    # )
+    parser.add_argument(
+        "-t",
+        "--threshold",
+        default=0.01,
+        type=float,
+        help=("Clearance rate error threshold. Defaults to 0.01."),
+    )
 
     args = parser.parse_args()
 
@@ -99,7 +98,7 @@ def main():
         filtered_results = [x for x in results if x["function"] == foo]
         print("# of results for {}: {}".format(foo, len(filtered_results)))
 
-        clearance = Clearance(optima[foo])
+        clearance = Clearance(optima[foo], threshold=args.threshold)
         clearance.calculate(filtered_results)
         print("Clearance rate: ", clearance.clearance_rate)
 
