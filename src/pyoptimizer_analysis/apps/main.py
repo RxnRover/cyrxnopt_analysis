@@ -8,6 +8,9 @@ from pyoptimizer_analysis.Analyzer import Analyzer
 from pyoptimizer_analysis.EDBOpResultsStrategy import EDBOpResultsStrategy
 from pyoptimizer_analysis.metrics.Clearance import Clearance
 from pyoptimizer_analysis.metrics.SolveTime import SolveTime
+from pyoptimizer_analysis.NMSimplexLMFitResultsStrategy import (
+    NMSimplexLMFitResultsStrategy,
+)
 from pyoptimizer_analysis.NMSimplexResultsStrategy import (
     NMSimplexResultsStrategy,
 )
@@ -55,6 +58,8 @@ def main():
         results_strategy = EDBOpResultsStrategy()
     elif optimizer_lower == "nmsimplex":
         results_strategy = NMSimplexResultsStrategy()
+    elif optimizer_lower == "nmsimplexlmfit":
+        results_strategy = NMSimplexLMFitResultsStrategy()
     elif optimizer_lower == "sqsnobfit":
         results_strategy = SQSnobFitResultsStrategy()
     else:
