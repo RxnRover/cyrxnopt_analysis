@@ -27,3 +27,12 @@ class TestSolveTime(unittest.TestCase):
         self.assertEqual(45, metric.result)
         self.assertEqual(2, metric.total_cycles)
         self.assertEqual(90, metric.total_iterations)
+
+    def test_no_results_given(self):
+        metric = SolveTime()
+        metric.calculate([])
+
+        self.assertEqual(0, metric.solve_time)
+        self.assertEqual(0, metric.result)
+        self.assertEqual(0, metric.total_cycles)
+        self.assertEqual(0, metric.total_iterations)

@@ -24,7 +24,10 @@ class SolveTime(Metric):
         self._total_iterations = sum([result.best_iter for result in results])
         self._total_cycles = len(results)
 
-        self._solve_time = self.total_iterations / self.total_cycles
+        # Only update solve time from 0 if there are successful cycles given
+        if self._total_cycles != 0:
+            self._solve_time = self.total_iterations / self.total_cycles
+
         self._result = self._solve_time
 
     @property
