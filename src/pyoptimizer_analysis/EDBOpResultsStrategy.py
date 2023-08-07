@@ -17,16 +17,18 @@ class EDBOpResultsStrategy(ReadResultsStrategy):
         results = Results()
         df = pd.read_csv(result_file)
 
-        data = df[df['priority'] == -1]
-        data = data.drop('priority', axis=1)
-        data = data.reset_index(drop=True)
-        data['yield'] = pd.to_numeric(data['yield'])
+        #data = df[df['priority'] == -1]
+        #data = data.drop('priority', axis=1)
+        #data = data.reset_index(drop=True)
+        df['yield'] = pd.to_numeric(df[-1])
 
-        max_val = -data['yield'].max()
-        idmax = data['yield'].idxmax() + 1
+        max_val = -df['yield'].max()
+        idmax = df['yield'].idxmax() + 1
 
-        best_conditions = data.loc[data['yield'].idxmax()][:-1].values.tolist()
+        best_conditions = df.loc[df['yield'].idxmax()][:-2].values.tolist()
+        yield_array = df['yield'].values.tolist()
 
+        results.yields = yield_array
         results.best_coords = best_conditions
         results.best_value = max_val
         results.best_iter = idmax

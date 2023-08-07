@@ -27,7 +27,9 @@ class AMLROResultsStrategy(ReadResultsStrategy):
             idmax = 0
 
         best_conditions = data.loc[data['Yield'].idxmax()][:-1].values.tolist()
+        yield_array = data['yield'].values.tolist()
 
+        results.yields = yield_array
         results.best_coords = best_conditions
         results.best_value = max_val
         results.best_iter = idmax
