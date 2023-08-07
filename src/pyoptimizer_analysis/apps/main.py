@@ -6,6 +6,7 @@ import pandas as pd
 from pyoptimizer_analysis.AMLROResultsStrategy import AMLROResultsStrategy
 from pyoptimizer_analysis.Analyzer import Analyzer
 from pyoptimizer_analysis.EDBOpResultsStrategy import EDBOpResultsStrategy
+from pyoptimizer_analysis.metrics.AverageResult import AverageResult
 from pyoptimizer_analysis.metrics.Clearance import Clearance
 from pyoptimizer_analysis.metrics.SolveTime import SolveTime
 from pyoptimizer_analysis.NMSimplexResultsStrategy import (
@@ -34,6 +35,16 @@ def parse_args() -> argparse.Namespace:
         default=0.01,
         type=float,
         help=("Clearance rate error threshold. Defaults to 0.01."),
+    )
+    parser.add_argument(
+        "-fp",
+        "--filepattern",
+        default="results.json",
+        type=str,
+        help=(
+            "File regex pattern to search for results files. Defaults to "
+            '"results.json"'
+        ),
     )
 
     args = parser.parse_args()
@@ -64,7 +75,7 @@ def main():
     analyzer = Analyzer(results_strategy)
 
     results = analyzer.analyze_directory(
-        args.results_dir, file_pattern=r"results.json", recursive=True
+        args.results_dir, file_pattern=args.filepattern, recursive=True
     )
 
     # Data validation
@@ -90,6 +101,8 @@ def main():
 
     cleared_runs_tbl = pd.DataFrame(columns=["Cleared runs"])
     iterations_tbl = pd.DataFrame(columns=["Iterations needed"])
+    average_value_successful_tbl = pd.DataFrame(columns=["Cleared runs"])
+    average_value_total_tbl = pd.DataFrame(columns=["Iterations needed"])
 
     cleared_runs_tbl["Cleared runs"] = [optimizer_lower]
     iterations_tbl["Iterations needed"] = [optimizer_lower]
@@ -97,6 +110,9 @@ def main():
     for foo in optima.keys():
         filtered_results = [x for x in results if x["function"] == foo]
         print("# of results for {}: {}".format(foo, len(filtered_results)))
+
+        if len(filtered_results) == 0:
+            continue
 
         clearance = Clearance(optima[foo], threshold=args.threshold)
         clearance.calculate(filtered_results)
@@ -106,9 +122,21 @@ def main():
         solve_time.calculate(clearance.successful_results)
         print("Solve time: ", solve_time.solve_time)
 
+        average_value_successful = AverageResult()
+        average_value_successful.calculate(clearance.successful_results)
+        print("Average Successful Value:", average_value_successful.result)
+
+        average_value_total = AverageResult()
+        average_value_total.calculate(filtered_results)
+        print("Average Total Value:", average_value_total.result)
+
         # Add data to the dataframes
         cleared_runs_tbl[foo] = [clearance.success_count]
         iterations_tbl[foo] = [solve_time.total_iterations]
+        average_value_successful_tbl[foo] = [average_value_successful.result]
+        average_value_total_tbl[foo] = [average_value_successful.result]
+
+        print("=" * 40)
 
     cleared_runs_tbl.to_csv(
         "data/{}_no_noise_clearance.csv".format(optimizer_lower), index=False
