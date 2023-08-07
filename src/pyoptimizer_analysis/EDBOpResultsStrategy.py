@@ -1,9 +1,12 @@
+import pandas as pd
+
+from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 from pyoptimizer_analysis.ReadResultsStrategy import ReadResultsStrategy
 from pyoptimizer_analysis.Results import Results
 import pandas as pd
 
 class EDBOpResultsStrategy(ReadResultsStrategy):
-    def analyze_results(self, result_file: str)-> Results:
+    def analyze_results(self, result_file: str) -> OptimizerResult:
         """Analyzes results from the EDBOP optimizer.
 
         :param result_file: File to read the results from. This must be
@@ -14,7 +17,7 @@ class EDBOpResultsStrategy(ReadResultsStrategy):
         :rtype: Results
         """
         
-        results = Results()
+        results = OptimizerResult()
         df = pd.read_csv(result_file)
 
         #data = df[df['priority'] == -1]

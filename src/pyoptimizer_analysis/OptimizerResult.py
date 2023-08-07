@@ -1,6 +1,15 @@
-class Results(dict):
+from math import nan
+
+
+class OptimizerResult(dict):
     def __init__(self):
         self["best_coords"] = []
+        self["best_value"] = nan
+        self["best_iter"] = -1
+        self["filename"] = ""
+        self["total_iter"] = -1
+        self["message"] = ""
+        self["raw_results"] = None
 
     @property
     def best_coords(self):
@@ -33,6 +42,14 @@ class Results(dict):
     @best_iter.setter
     def best_iter(self, value):
         self["best_iter"] = value
+
+    @property
+    def filename(self) -> str:
+        return self["filename"]
+
+    @filename.setter
+    def filename(self, value: str):
+        self["filename"] = value
 
     @property
     def total_iter(self):
