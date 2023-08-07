@@ -1,10 +1,10 @@
 import unittest
 
-from pyoptimizer_analysis.metrics.AverageResult import AverageResult
+from pyoptimizer_analysis.metrics.Average import Average
 from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 
 
-class TestAverageResult(unittest.TestCase):
+class TestAverage(unittest.TestCase):
     def test_averaging_results(self):
         result = OptimizerResult()
         result.best_value = 2
@@ -17,7 +17,7 @@ class TestAverageResult(unittest.TestCase):
 
         results = [result, result2, result3]
 
-        metric = AverageResult()
+        metric = Average()
         metric.calculate(results)
 
         self.assertAlmostEqual(3, metric.result)
@@ -28,7 +28,7 @@ class TestAverageResult(unittest.TestCase):
     def test_averaging_no_results(self):
         results = []
 
-        metric = AverageResult()
+        metric = Average()
         metric.calculate(results)
 
         self.assertAlmostEqual(0, metric.result)

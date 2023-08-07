@@ -4,15 +4,15 @@ from pyoptimizer_analysis.metrics.Metric import Metric
 from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 
 
-class AverageResult(Metric):
+class Average(Metric):
     def __init__(self):
-        """Create a AverageResult metric object."""
+        """Create a Average metric object."""
 
         self._total_value = 0
         self._total_iterations = 0
         self._average_value = 0
 
-        super(AverageResult, self).__init__()
+        super(Average, self).__init__()
 
     def calculate(self, results: List[OptimizerResult]):
         """Calculate the metric.
