@@ -1,10 +1,7 @@
 import argparse
 
-<<<<<<< HEAD
-=======
 import pandas as pd
 
->>>>>>> main
 # from pyoptimizer_analysis.alerts.OverBudget import OverBudget
 from pyoptimizer_analysis.AMLROResultsStrategy import AMLROResultsStrategy
 from pyoptimizer_analysis.Analyzer import Analyzer
@@ -31,16 +28,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "results_dir", help="Location for results file to analyze."
     )
-<<<<<<< HEAD
-    # parser.add_argument(
-    #     "--default-config",
-    #     action="store_true",
-    #     help=(
-    #         "Generate config file with default values at the location given"
-    #         "by output_dir."
-    #     ),
-    # )
-=======
     parser.add_argument(
         "-t",
         "--threshold",
@@ -48,7 +35,6 @@ def parse_args() -> argparse.Namespace:
         type=float,
         help=("Clearance rate error threshold. Defaults to 0.01."),
     )
->>>>>>> main
 
     args = parser.parse_args()
 
@@ -89,12 +75,9 @@ def main():
     #     args.results_dir, file_pattern=r"my_optimization.csv", recursive=True
     # )
 
-<<<<<<< HEAD
-=======
     results = analyzer.analyze_directory(
         args.results_dir, file_pattern=r"results.json", recursive=True
     )
->>>>>>> main
 
     # Data validation
 
@@ -114,12 +97,6 @@ def main():
 
     # Get the function used for each result
     results = GetFunctionName.map(results)
-<<<<<<< HEAD
-    print(results)
-
-    # Metric calculations
-
-=======
 
     # Metric calculations
 
@@ -129,20 +106,10 @@ def main():
     cleared_runs_tbl["Cleared runs"] = [optimizer_lower]
     iterations_tbl["Iterations needed"] = [optimizer_lower]
 
->>>>>>> main
     for foo in optima.keys():
         filtered_results = [x for x in results if x["function"] == foo]
         print("# of results for {}: {}".format(foo, len(filtered_results)))
 
-<<<<<<< HEAD
-        clearance = Clearance(optima[foo], threshold=0.05)
-        clearance.calculate(filtered_results)
-        print("Clearance rate: ", clearance.result)
-
-        solve_time = SolveTime(optima[foo],threshold=0.05)
-        solve_time.calculate(filtered_results)
-        print("Solve time: ", solve_time.result)
-=======
         clearance = Clearance(optima[foo], threshold=args.threshold)
         clearance.calculate(filtered_results)
         print("Clearance rate: ", clearance.clearance_rate)
@@ -164,7 +131,6 @@ def main():
 
     print(cleared_runs_tbl)
     print(iterations_tbl)
->>>>>>> main
 
 
 if __name__ == "__main__":
