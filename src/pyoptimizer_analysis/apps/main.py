@@ -6,6 +6,7 @@ import pandas as pd
 from pyoptimizer_analysis.AMLROResultsStrategy import AMLROResultsStrategy
 from pyoptimizer_analysis.Analyzer import Analyzer
 from pyoptimizer_analysis.EDBOpResultsStrategy import EDBOpResultsStrategy
+from pyoptimizer_analysis.metrics.AverageResult import AverageResult
 from pyoptimizer_analysis.metrics.Clearance import Clearance
 from pyoptimizer_analysis.metrics.SolveTime import SolveTime
 from pyoptimizer_analysis.NMSimplexResultsStrategy import (
@@ -118,6 +119,40 @@ def main():
         solve_time = SolveTime()
         solve_time.calculate(clearance.successful_results)
         print("Solve time: ", solve_time.solve_time)
+
+        average_value_successful = AverageResult()
+        average_value_successful.calculate(clearance.successful_results)
+        if optima[foo] != 0:
+            average_value_successful_error = (
+                optima[foo] - average_value_successful.result
+            ) / optima[foo]
+        else:
+            average_value_successful_error = (
+                optima[foo] - average_value_successful.result
+            )
+        print(
+            "Average successful value: {:.3f}, {:.3f} error".format(
+                average_value_successful.result, average_value_successful_error
+            )
+        )
+
+        average_value_total = AverageResult()
+        average_value_total.calculate(filtered_results)
+        if optima[foo] != 0:
+            average_value_total_error = (
+                optima[foo] - average_value_total.result
+            ) / optima[foo]
+        else:
+            average_value_total_error = (
+                optima[foo] - average_value_total.result
+            )
+        print(
+            "Average total value: {:.3f}, {:.3f} error".format(
+                average_value_total.result, average_value_total_error
+            )
+        )
+
+        print("Real optimum:", optima[foo])
 
         # Add data to the dataframes
         cleared_runs_tbl[foo] = [clearance.success_count]
