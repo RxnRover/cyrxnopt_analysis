@@ -9,6 +9,7 @@ from pyoptimizer_analysis.EDBOpResultsStrategy import EDBOpResultsStrategy
 from pyoptimizer_analysis.metrics.AverageResult import AverageResult
 from pyoptimizer_analysis.metrics.Clearance import Clearance
 from pyoptimizer_analysis.metrics.SolveTime import SolveTime
+from pyoptimizer_analysis.metrics.StdDev import StdDev
 from pyoptimizer_analysis.NMSimplexResultsStrategy import (
     NMSimplexResultsStrategy,
 )
@@ -136,6 +137,14 @@ def main():
             )
         )
 
+        std_dev_value_successful = StdDev()
+        std_dev_value_successful.calculate(clearance.successful_results)
+        print(
+            "std_dev successful value: {:.3f}".format(
+                std_dev_value_successful.result
+            )
+        )
+
         average_value_total = AverageResult()
         average_value_total.calculate(filtered_results)
         if optima[foo] != 0:
@@ -151,6 +160,10 @@ def main():
                 average_value_total.result, average_value_total_error
             )
         )
+
+        std_dev_value_total = StdDev()
+        std_dev_value_total.calculate(filtered_results)
+        print("std_dev total value: {:.3f}".format(std_dev_value_total.result))
 
         print("Real optimum:", optima[foo])
 
