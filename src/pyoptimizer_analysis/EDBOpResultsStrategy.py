@@ -2,8 +2,6 @@ import pandas as pd
 
 from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 from pyoptimizer_analysis.ReadResultsStrategy import ReadResultsStrategy
-from pyoptimizer_analysis.Results import Results
-import pandas as pd
 
 class EDBOpResultsStrategy(ReadResultsStrategy):
     def analyze_results(self, result_file: str) -> OptimizerResult:
@@ -23,7 +21,7 @@ class EDBOpResultsStrategy(ReadResultsStrategy):
         #data = df[df['priority'] == -1]
         #data = data.drop('priority', axis=1)
         #data = data.reset_index(drop=True)
-        df['yield'] = pd.to_numeric(df[-1])
+        df['yield'] = pd.to_numeric(df.iloc[:,-1])
 
         max_val = -df['yield'].max()
         idmax = df['yield'].idxmax() + 1
