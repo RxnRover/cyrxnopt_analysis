@@ -6,7 +6,7 @@ import pandas as pd
 from pyoptimizer_analysis.AMLROResultsStrategy import AMLROResultsStrategy
 from pyoptimizer_analysis.Analyzer import Analyzer
 from pyoptimizer_analysis.EDBOpResultsStrategy import EDBOpResultsStrategy
-from pyoptimizer_analysis.metrics.AverageResult import AverageResult
+from pyoptimizer_analysis.metrics.Average import Average
 from pyoptimizer_analysis.metrics.Clearance import Clearance
 from pyoptimizer_analysis.metrics.SolveTime import SolveTime
 from pyoptimizer_analysis.metrics.StdDev import StdDev
@@ -121,7 +121,7 @@ def main():
         solve_time.calculate(clearance.successful_results)
         print("Solve time: ", solve_time.solve_time)
 
-        average_value_successful = AverageResult()
+        average_value_successful = Average()
         average_value_successful.calculate(clearance.successful_results)
         if optima[foo] != 0:
             average_value_successful_error = (
@@ -145,7 +145,7 @@ def main():
             )
         )
 
-        average_value_total = AverageResult()
+        average_value_total = Average()
         average_value_total.calculate(filtered_results)
         if optima[foo] != 0:
             average_value_total_error = (
