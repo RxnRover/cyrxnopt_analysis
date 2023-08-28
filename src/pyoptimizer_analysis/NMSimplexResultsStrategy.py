@@ -1,4 +1,5 @@
 import json
+import pandas as pd
 
 from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 from pyoptimizer_analysis.ReadResultsStrategy import ReadResultsStrategy
@@ -21,11 +22,13 @@ class NMSimplexResultsStrategy(ReadResultsStrategy):
 
         results = OptimizerResult()
 
+        df = pd.DataFrame(nmsimplex_results["raw_results"])
+
         results.best_coords = nmsimplex_results["best_coords"]
         results.best_value = nmsimplex_results["best_value"]
         results.best_iter = nmsimplex_results["best_iter"]
         results.total_iter = nmsimplex_results["total_iter"]
         results.message = nmsimplex_results["message"]
-        results.raw_results = nmsimplex_results["raw_results"]
+        results.raw_results = df
 
         return results
