@@ -30,6 +30,7 @@ optima = {
     "hartmann6D": hartmann.hartmann_min(dimensions=6),
     "himmelblau": himmelblau.himmelblau_min(),
     "holder_table": holder_table.holder_table_min(),
+    "imine": -0.1664,
     "matyas": matyas.matyas_min(),
     "rosenbrock": rosenbrock.rosenbrock_min(),
     "schwefel2D": schwefel.schwefel_min(),
