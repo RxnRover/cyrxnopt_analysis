@@ -13,7 +13,7 @@ class Metric(ABC):
 
         :param results: Results to use when calculating the metric
         :type results: List[Results]
-        :raises RuntimeError: This function must be overridden by chilren.
+        :raises RuntimeError: This function must be overridden by children.
         """
 
         raise RuntimeError(

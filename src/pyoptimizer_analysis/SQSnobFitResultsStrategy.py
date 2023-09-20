@@ -1,4 +1,5 @@
 import json
+import pandas as pd
 
 from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 from pyoptimizer_analysis.ReadResultsStrategy import ReadResultsStrategy
@@ -21,11 +22,15 @@ class SQSnobFitResultsStrategy(ReadResultsStrategy):
 
         results = OptimizerResult()
 
+        df = pd.DataFrame(sqsnobfit_results["raw_results"])
+        df['yield'] = df.pop(0)
+
+
         results.best_coords = sqsnobfit_results["best_coords"]
         results.best_value = sqsnobfit_results["best_value"]
         results.best_iter = sqsnobfit_results["best_iter"]
         results.total_iter = sqsnobfit_results["total_iter"]
         results.message = sqsnobfit_results["message"]
-        results.raw_results = sqsnobfit_results["raw_results"]
+        results.raw_results = df
 
         return results

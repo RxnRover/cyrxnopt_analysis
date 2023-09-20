@@ -74,10 +74,22 @@ def main():
         )
 
     analyzer = Analyzer(results_strategy)
-
+    
     results = analyzer.analyze_directory(
         args.results_dir, file_pattern=args.filepattern, recursive=True
     )
+    # if optimizer_lower == "amlro":
+    #     results = analyzer.analyze_directory(
+    #         args.results_dir, file_pattern=r"training_set_file.txt", recursive=True
+    #     )
+    # elif optimizer_lower == "edbop":
+    #     results = analyzer.analyze_directory(
+    #     args.results_dir, file_pattern=r"my_optimization.csv", recursive=True
+    # )
+
+    #results = analyzer.analyze_directory(
+    #    args.results_dir, file_pattern=r"results.json", recursive=True
+    #)
 
     # Data validation
 

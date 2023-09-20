@@ -26,6 +26,14 @@ class OptimizerResult(dict):
     @best_value.setter
     def best_value(self, value):
         self["best_value"] = value
+    
+    @property
+    def yields(self):
+        return self["yields"]
+
+    @yields.setter
+    def yields(self, value):
+        self["yields"] = value
 
     @property
     def best_iter(self):

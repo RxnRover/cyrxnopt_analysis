@@ -2,7 +2,7 @@ import pandas as pd
 
 from pyoptimizer_analysis.OptimizerResult import OptimizerResult
 from pyoptimizer_analysis.ReadResultsStrategy import ReadResultsStrategy
-
+import numpy as np
 
 class AMLROResultsStrategy(ReadResultsStrategy):
     def analyze_results(self, result_file: str) -> OptimizerResult:
@@ -26,8 +26,10 @@ class AMLROResultsStrategy(ReadResultsStrategy):
         else:
             idmax = 0
 
-        best_conditions = data.loc[data["Yield"].idxmax()][:-1].values.tolist()
+        best_conditions = data.loc[data['Yield'].idxmax()][:-1].values.tolist()
+        
 
+        results.raw_results = data
         results.best_coords = best_conditions
         results.best_value = max_val
         results.best_iter = idmax
