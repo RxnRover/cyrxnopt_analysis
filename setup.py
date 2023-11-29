@@ -1,5 +1,5 @@
 """
-    Setup file for pyoptimizer_analysis.
+    Setup file for cyrxnopt_analysis.
     Use setup.cfg to configure your project.
 
     This file was generated with PyScaffold 4.4.1.

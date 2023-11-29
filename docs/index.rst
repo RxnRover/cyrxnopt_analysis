@@ -1,8 +1,8 @@
 ====================
-pyoptimizer_analysis
+cyrxnopt_analysis
 ====================
 
-This is the documentation of **pyoptimizer_analysis**.
+This is the documentation of **cyrxnopt_analysis**.
 
 .. note::
 
