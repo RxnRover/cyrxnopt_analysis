@@ -1,5 +1,5 @@
 """
-    Dummy conftest.py for pyoptimizer_analysis.
+    Dummy conftest.py for cyrxnopt_analysis.
 
     If you don't know what this is for, just leave it empty.
     Read more about conftest.py under:

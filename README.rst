@@ -1,27 +1,27 @@
 .. These are examples of badges you might want to add to your README:
    please update the URLs accordingly
 
-    .. image:: https://api.cirrus-ci.com/github/<USER>/pyoptimizer_analysis.svg?branch=main
+    .. image:: https://api.cirrus-ci.com/github/<USER>/cyrxnopt_analysis.svg?branch=main
         :alt: Built Status
-        :target: https://cirrus-ci.com/github/<USER>/pyoptimizer_analysis
-    .. image:: https://readthedocs.org/projects/pyoptimizer_analysis/badge/?version=latest
+        :target: https://cirrus-ci.com/github/<USER>/cyrxnopt_analysis
+    .. image:: https://readthedocs.org/projects/cyrxnopt_analysis/badge/?version=latest
         :alt: ReadTheDocs
-        :target: https://pyoptimizer_analysis.readthedocs.io/en/stable/
-    .. image:: https://img.shields.io/coveralls/github/<USER>/pyoptimizer_analysis/main.svg
+        :target: https://cyrxnopt_analysis.readthedocs.io/en/stable/
+    .. image:: https://img.shields.io/coveralls/github/<USER>/cyrxnopt_analysis/main.svg
         :alt: Coveralls
-        :target: https://coveralls.io/r/<USER>/pyoptimizer_analysis
-    .. image:: https://img.shields.io/pypi/v/pyoptimizer_analysis.svg
+        :target: https://coveralls.io/r/<USER>/cyrxnopt_analysis
+    .. image:: https://img.shields.io/pypi/v/cyrxnopt_analysis.svg
         :alt: PyPI-Server
-        :target: https://pypi.org/project/pyoptimizer_analysis/
-    .. image:: https://img.shields.io/conda/vn/conda-forge/pyoptimizer_analysis.svg
+        :target: https://pypi.org/project/cyrxnopt_analysis/
+    .. image:: https://img.shields.io/conda/vn/conda-forge/cyrxnopt_analysis.svg
         :alt: Conda-Forge
-        :target: https://anaconda.org/conda-forge/pyoptimizer_analysis
-    .. image:: https://pepy.tech/badge/pyoptimizer_analysis/month
+        :target: https://anaconda.org/conda-forge/cyrxnopt_analysis
+    .. image:: https://pepy.tech/badge/cyrxnopt_analysis/month
         :alt: Monthly Downloads
-        :target: https://pepy.tech/project/pyoptimizer_analysis
+        :target: https://pepy.tech/project/cyrxnopt_analysis
     .. image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter
         :alt: Twitter
-        :target: https://twitter.com/pyoptimizer_analysis
+        :target: https://twitter.com/cyrxnopt_analysis
 
 .. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
     :alt: Project generated with PyScaffold
@@ -30,7 +30,7 @@
 |
 
 ====================
-pyoptimizer_analysis
+cyrxnopt_analysis
 ====================
 
 
@@ -49,7 +49,7 @@ This project uses `pre-commit`_, please make sure to install it before making an
 changes::
 
     pip install pre-commit
-    cd pyoptimizer_analysis
+    cd cyrxnopt_analysis
     pre-commit install
 
 It is a good idea to update the hooks to the latest version::
