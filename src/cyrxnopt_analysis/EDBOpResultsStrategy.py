@@ -35,8 +35,12 @@ class EDBOpResultsStrategy(ReadResultsStrategy):
 
         tmp_results_file = os.path.dirname(result_file)
         tmp_results_file = os.path.join(tmp_results_file, "results.json")
-        with open(tmp_results_file, "r") as fin:
-            edbop_results = json.load(fin)
+
+        try:
+            with open(tmp_results_file, "r") as fin:
+                edbop_results = json.load(fin)
+        except FileNotFoundError:
+            return None
 
         results = OptimizerResult()
 
