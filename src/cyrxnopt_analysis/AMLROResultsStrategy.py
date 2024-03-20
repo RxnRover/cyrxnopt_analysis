@@ -19,14 +19,16 @@ class AMLROResultsStrategy(ReadResultsStrategy):
         results = OptimizerResult()
         data = pd.read_csv(result_file)
 
-        max_val = -data["Yield"].max()
-        idmax = data["Yield"].idxmax() + 1
+        max_val = -data[data.columns[-1]].max()
+        idmax = data[data.columns[-1]].idxmax() + 1
         if idmax > 20:
             idmax = idmax - 20
         else:
             idmax = 0
 
-        best_conditions = data.loc[data["Yield"].idxmax()][:-1].values.tolist()
+        best_conditions = data.loc[data[data.columns[-1]].idxmax()][
+            :-1
+        ].values.tolist()
 
         results.best_coords = best_conditions
         results.best_value = max_val
