@@ -30,7 +30,6 @@ optima = {
     "hartmann6D": hartmann.Hartmann6D().global_minima[0].value,
     "himmelblau": himmelblau.Himmelblau().global_minima[0].value,
     "holder_table": holder_table.HolderTable().global_minima[0].value,
-    "imine": -0.1664,
     "matyas": matyas.Matyas().global_minima[0].value,
     "rosenbrock": rosenbrock.Rosenbrock().global_minima[0].value,
     "schwefel2D": schwefel.Schwefel(dim=2).global_minima[0].value,
@@ -47,10 +46,14 @@ optima = {
     "three_hump_camel": three_hump_camel.ThreeHumpCamel()
     .global_minima[0]
     .value,
-    "pk": -65.3102665008655,
     "aldol_yield_product": -89.7,
     "aldol_yield_dba": 0.11466,
     "aldol_sty": -285.3,
     "aldol_lit_sty": -237.43,
     "aldol_lit_efactor": -33.7,
+    "imine": -0.1664,
+    "sugar_data_yield": -25.75,
+    "sugar_data_selectivity": -63.32,
+    "pk1": -65.3102665008655,
+    "pk2": -62.9193686433794,
 }
