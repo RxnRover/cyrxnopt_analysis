@@ -56,8 +56,8 @@ Tracker = "https://github.com/RxnRover/cyrxnopt_analysis/issues"
 Download = "https://github.com/RxnRover/cyrxnopt_analysis/archive/refs/heads/main.zip"
 Changelog = "https://github.com/RxnRover/cyrxnopt_analysis/releases/latest"
 
-# [project.scripts]
-# script = "cyrxnopt_analysis.apps.script:main"
+[project.scripts]
+analyze_results = "cyrxnopt_analysis.apps.main:main"
 
 # Install these optional development dependencies with pip's --group flag while
 # in the project root directory.
