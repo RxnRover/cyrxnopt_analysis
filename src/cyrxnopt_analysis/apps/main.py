@@ -156,6 +156,7 @@ def main():
         print("# of results for {}: {}".format(foo, len(filtered_results)))
 
         if len(filtered_results) == 0:
+            print("=" * 40)
             continue
 
         clearance = Clearance(optima[foo], threshold=args.threshold)
