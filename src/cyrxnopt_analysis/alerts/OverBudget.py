@@ -8,8 +8,8 @@ class OverBudget(Alert):
     def __init__(self, budget: int, throw: bool = False):
         super(OverBudget, self).__init__(throw)
 
-        self._budget = budget
-        self._errors = []
+        self._budget: int = budget
+        self._errors: List[OptimizerResult] = []
 
     def process(self, results: List[OptimizerResult]):
         for result in results:

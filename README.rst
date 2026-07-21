@@ -1,27 +1,28 @@
-.. These are examples of badges you might want to add to your README:
-   please update the URLs accordingly
+..
+    These are examples of badges you might want to add to your README:
+    please update the URLs accordingly
 
-    .. image:: https://api.cirrus-ci.com/github/<USER>/cyrxnopt_analysis.svg?branch=main
-        :alt: Built Status
-        :target: https://cirrus-ci.com/github/<USER>/cyrxnopt_analysis
-    .. image:: https://readthedocs.org/projects/cyrxnopt_analysis/badge/?version=latest
-        :alt: ReadTheDocs
-        :target: https://cyrxnopt_analysis.readthedocs.io/en/stable/
-    .. image:: https://img.shields.io/coveralls/github/<USER>/cyrxnopt_analysis/main.svg
-        :alt: Coveralls
-        :target: https://coveralls.io/r/<USER>/cyrxnopt_analysis
-    .. image:: https://img.shields.io/pypi/v/cyrxnopt_analysis.svg
-        :alt: PyPI-Server
-        :target: https://pypi.org/project/cyrxnopt_analysis/
-    .. image:: https://img.shields.io/conda/vn/conda-forge/cyrxnopt_analysis.svg
-        :alt: Conda-Forge
-        :target: https://anaconda.org/conda-forge/cyrxnopt_analysis
-    .. image:: https://pepy.tech/badge/cyrxnopt_analysis/month
-        :alt: Monthly Downloads
-        :target: https://pepy.tech/project/cyrxnopt_analysis
-    .. image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter
-        :alt: Twitter
-        :target: https://twitter.com/cyrxnopt_analysis
+     .. image:: https://api.cirrus-ci.com/github/<USER>/cyrxnopt_analysis.svg?branch=main
+         :alt: Built Status
+         :target: https://cirrus-ci.com/github/<USER>/cyrxnopt_analysis
+     .. image:: https://readthedocs.org/projects/cyrxnopt_analysis/badge/?version=latest
+         :alt: ReadTheDocs
+         :target: https://cyrxnopt_analysis.readthedocs.io/en/stable/
+     .. image:: https://img.shields.io/coveralls/github/<USER>/cyrxnopt_analysis/main.svg
+         :alt: Coveralls
+         :target: https://coveralls.io/r/<USER>/cyrxnopt_analysis
+     .. image:: https://img.shields.io/pypi/v/cyrxnopt_analysis.svg
+         :alt: PyPI-Server
+         :target: https://pypi.org/project/cyrxnopt_analysis/
+     .. image:: https://img.shields.io/conda/vn/conda-forge/cyrxnopt_analysis.svg
+         :alt: Conda-Forge
+         :target: https://anaconda.org/conda-forge/cyrxnopt_analysis
+     .. image:: https://pepy.tech/badge/cyrxnopt_analysis/month
+         :alt: Monthly Downloads
+         :target: https://pepy.tech/project/cyrxnopt_analysis
+     .. image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter
+         :alt: Twitter
+         :target: https://twitter.com/cyrxnopt_analysis
 
 .. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
     :alt: Project generated with PyScaffold
@@ -29,30 +30,32 @@
 
 |
 
-====================
-cyrxnopt_analysis
-====================
-
+###################
+ cyrxnopt_analysis
+###################
 
     Add a short description here!
 
-
 A longer description of your project goes here...
-
 
 .. _pyscaffold-notes:
 
-Making Changes & Contributing
-=============================
+*******************************
+ Making Changes & Contributing
+*******************************
 
-This project uses `pre-commit`_, please make sure to install it before making any
-changes::
+This project uses pre-commit_, please make sure to install it before making any
+changes:
+
+::
 
     pip install pre-commit
     cd cyrxnopt_analysis
     pre-commit install
 
-It is a good idea to update the hooks to the latest version::
+It is a good idea to update the hooks to the latest version:
+
+::
 
     pre-commit autoupdate
 
@@ -60,8 +63,9 @@ Don't forget to tell your contributors to also install and use pre-commit.
 
 .. _pre-commit: https://pre-commit.com/
 
-Note
-====
+******
+ Note
+******
 
 This project has been set up using PyScaffold 4.4.1. For details and usage
 information on PyScaffold see https://pyscaffold.org/.

@@ -148,9 +148,7 @@ def main():
                 optima[foo] - average_value_total.result
             ) / optima[foo]
         else:
-            average_value_total_error = (
-                optima[foo] - average_value_total.result
-            )
+            average_value_total_error = optima[foo] - average_value_total.result
         print(
             "Average total value: {:.3f}, {:.3f} error".format(
                 average_value_total.result, average_value_total_error

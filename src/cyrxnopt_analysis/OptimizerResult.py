@@ -1,6 +1,7 @@
 from math import nan
 
 
+# TODO: I think a dataclass would be better for this
 class OptimizerResult(dict):
     def __init__(self):
         self["best_coords"] = []

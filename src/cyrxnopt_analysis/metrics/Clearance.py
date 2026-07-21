@@ -19,10 +19,10 @@ class Clearance(Metric):
         self._threshold = threshold
 
         # Default the property values
-        self._clearance_rate = 0
-        self._failed_results = []
-        self._success_count = 0
-        self._successful_results = []
+        self._clearance_rate: int = 0
+        self._failed_results: List[OptimizerResult] = []
+        self._success_count: int = 0
+        self._successful_results: List[OptimizerResult] = []
 
         super(Clearance, self).__init__()
 
@@ -49,10 +49,8 @@ class Clearance(Metric):
         # Store the success rate
         if self.success_count == 0:
             self._clearance_rate = 0
-            self._result = 0
         else:
-            self._clearance_rate = self.success_count / len(results)
-            self._result = self.success_count / len(results)
+            self._clearance_rate = self.success_count // len(results)
 
     @property
     def clearance_rate(self) -> float:

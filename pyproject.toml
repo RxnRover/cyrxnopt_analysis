@@ -130,11 +130,15 @@ exclude_lines = [
 ] # Regexes for lines to exclude from consideration
 
 [tool.mypy]
-disallow_untyped_defs = true
+# Disable for now, this code base was written before we were using type hints and must
+# be migrated
+disallow_untyped_defs = false
 # Any changes to exclude here need to be made in .pre-commit-config.yaml, too!
 # This exclude list doesn't work because of the way pre-commit invokes mypy
 exclude = ['^setup.py$', '^build', '^venv', '^docs', '^tests']
 
 [[tool.mypy.overrides]]
 module = "cyrxnopt_analysis.*"
-disallow_incomplete_defs = true
+# Disable for now, this code base was written before we were using type hints and must
+# be migrated
+disallow_incomplete_defs = false

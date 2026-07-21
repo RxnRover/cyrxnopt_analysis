@@ -7,6 +7,7 @@ from cyrxnopt_analysis.transforms.Transform import Transform
 
 
 class GetFunctionName(Transform):
+    @staticmethod
     def map(results: List[OptimizerResult]):
         """Get the function name for each result based on the result file's
         containing directory. The function name will be stored in the
@@ -20,6 +21,7 @@ class GetFunctionName(Transform):
 
         return results
 
+    @staticmethod
     def _get_function_name(result):
         """Extracts the function name from the containing directory of
         the results file and stores it in the Result object under the

@@ -40,7 +40,7 @@ class EDBOpResultsStrategy(ReadResultsStrategy):
             with open(tmp_results_file, "r") as fin:
                 edbop_results = json.load(fin)
         except FileNotFoundError:
-            return None
+            return OptimizerResult()
 
         results = OptimizerResult()
 
