@@ -1,8 +1,9 @@
 from typing import List
 
 import numpy as np
-from pyoptimizer_analysis.metrics.Metric import Metric
-from pyoptimizer_analysis.OptimizerResult import OptimizerResult
+
+from cyrxnopt_analysis.metrics.Metric import Metric
+from cyrxnopt_analysis.OptimizerResult import OptimizerResult
 
 
 class SolveTime(Metric):
