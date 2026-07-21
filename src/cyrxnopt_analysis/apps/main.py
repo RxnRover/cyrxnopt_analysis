@@ -29,9 +29,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "-t",
         "--threshold",
-        default=0.01,
+        default=0.02,
         type=float,
-        help=("Clearance rate error threshold. Defaults to 0.01."),
+        help=("Clearance rate error threshold. Defaults to 0.02."),
     )
     parser.add_argument(
         "-fp",
