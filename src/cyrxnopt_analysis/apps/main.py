@@ -13,6 +13,7 @@ from cyrxnopt_analysis.metrics.Clearance import Clearance
 from cyrxnopt_analysis.metrics.SolveTime import SolveTime
 from cyrxnopt_analysis.metrics.StdDev import StdDev
 from cyrxnopt_analysis.NMSimplexResultsStrategy import NMSimplexResultsStrategy
+from cyrxnopt_analysis.RandomResultsStrategy import RandomResultsStrategy
 from cyrxnopt_analysis.SQSnobFitResultsStrategy import SQSnobFitResultsStrategy
 from cyrxnopt_analysis.transforms.GetFunctionName import GetFunctionName
 from cyrxnopt_analysis.utilities.optima_table import optima
@@ -87,6 +88,8 @@ def main():
         results_strategy = NMSimplexResultsStrategy()
     elif optimizer_lower == "sqsnobfit":
         results_strategy = SQSnobFitResultsStrategy()
+    elif optimizer_lower == "random":
+        results_strategy = RandomResultsStrategy()
     else:
         raise RuntimeError(
             "Invalid optimizer provided: {}".format(args.optimizer)
