@@ -54,4 +54,6 @@ MANIFEST
 .python-version
 
 # Local files
-data
+data/
+analysis/
+results/
