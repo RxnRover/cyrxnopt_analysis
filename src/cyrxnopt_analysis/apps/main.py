@@ -96,7 +96,8 @@ def main():
         )
 
     # Default to an output directory if none given
-    if args.outdir is None:
+    outdir = args.outdir
+    if outdir is None:
         outdir = Path("analysis")
         outdir /= f"{datetime.today().strftime("%Y-%m-%d")}_{optimizer_lower}"
 
