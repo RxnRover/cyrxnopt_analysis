@@ -17,8 +17,6 @@ dependencies = [
 ]
 
 dynamic = ["version"]
-# Python 3.9 is the only version that worked for all 4 original optimizers.
-# This can and should change in the future.
 requires-python = ">=3.10, <4"
 license = "MIT"
 license-files = ["LICENSE.txt"]
@@ -27,7 +25,6 @@ keywords = [
     "analysis", "scientific software"
 ]
 classifiers = [
-    # TODO: Remove "Private :: Do Not Upload" classifier when ready to publish!
     "Private :: Do Not Upload",
 
     "Development Status :: 2 - Pre-Alpha",
