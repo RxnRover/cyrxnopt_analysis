@@ -1,5 +1,7 @@
 import unittest
 
+import numpy as np
+
 from cyrxnopt_analysis.metrics.SolveTime import SolveTime
 from cyrxnopt_analysis.OptimizerResult import OptimizerResult
 
@@ -32,7 +34,7 @@ class TestSolveTime(unittest.TestCase):
         metric = SolveTime()
         metric.calculate([])
 
-        self.assertEqual(0, metric.solve_time)
-        self.assertEqual(0, metric.result)
+        self.assertTrue(np.isnan(metric.solve_time))
+        self.assertTrue(np.isnan(metric.result))
         self.assertEqual(0, metric.total_cycles)
         self.assertEqual(0, metric.total_iterations)
