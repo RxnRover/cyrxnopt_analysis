@@ -2,4 +2,5 @@
  Contributors
 ##############
 
-- zachcran <zachcran@gmail.com>
+- dulithaprasanna <dulithaprasanna@gmail.com>
+- zachcran <zachcran@iastate.edu>
