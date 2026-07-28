@@ -33,17 +33,15 @@ classifiers = [
 
     # Intended audience tags and other information about what this project is
     "Intended Audience :: End Users/Desktop",
-    "Environment :: Plugins",
-    "Topic :: Software Development",
-    "Topic :: Software Development :: Libraries",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-    "Topic :: Utilities",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Chemistry",
 
     # Supported Python versions and operating systems
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Operating System :: POSIX :: Linux",
+    "Operating System :: OS Independent",
 ]
 
 [project.urls]
