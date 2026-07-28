@@ -51,6 +51,8 @@ class Clearance(Metric):
         else:
             self._clearance_rate = self.success_count / len(results)
 
+        self._result = self._clearance_rate
+
     @property
     def clearance_rate(self) -> float:
         """Success rate of the optimizer.
