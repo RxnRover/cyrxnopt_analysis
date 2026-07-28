@@ -9,7 +9,7 @@ This is the documentation of **cyrxnopt_analysis**.
 **********
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     Overview <readme>
     License <license>
