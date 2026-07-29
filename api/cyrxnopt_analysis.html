@@ -1,0 +1,551 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cyrxnopt_analysis package &mdash; cyrxnopt_analysis 0.0.post1.dev1+gb28f3d652 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=414f336e"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cyrxnopt_analysis.alerts namespace" href="cyrxnopt_analysis.alerts.html" />
+    <link rel="prev" title="cyrxnopt_analysis" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            cyrxnopt_analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">cyrxnopt_analysis package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.alerts.html">cyrxnopt_analysis.alerts namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.apps.html">cyrxnopt_analysis.apps namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html">cyrxnopt_analysis.metrics namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.transforms.html">cyrxnopt_analysis.transforms namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.utilities.html">cyrxnopt_analysis.utilities namespace</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cyrxnopt_analysis.AMLROResultsStrategy">cyrxnopt_analysis.AMLROResultsStrategy module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cyrxnopt_analysis.AMLROResultsStrategy.AMLROResultsStrategy"><code class="docutils literal notranslate"><span class="pre">AMLROResultsStrategy</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cyrxnopt_analysis.Analyzer">cyrxnopt_analysis.Analyzer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cyrxnopt_analysis.Analyzer.Analyzer"><code class="docutils literal notranslate"><span class="pre">Analyzer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cyrxnopt_analysis.EDBOpResultsStrategy">cyrxnopt_analysis.EDBOpResultsStrategy module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cyrxnopt_analysis.EDBOpResultsStrategy.EDBOpResultsStrategy"><code class="docutils literal notranslate"><span class="pre">EDBOpResultsStrategy</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cyrxnopt_analysis.NMSimplexResultsStrategy">cyrxnopt_analysis.NMSimplexResultsStrategy module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cyrxnopt_analysis.NMSimplexResultsStrategy.NMSimplexResultsStrategy"><code class="docutils literal notranslate"><span class="pre">NMSimplexResultsStrategy</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cyrxnopt_analysis.OptimizerResult">cyrxnopt_analysis.OptimizerResult module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult"><code class="docutils literal notranslate"><span class="pre">OptimizerResult</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cyrxnopt_analysis.RandomResultsStrategy">cyrxnopt_analysis.RandomResultsStrategy module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cyrxnopt_analysis.RandomResultsStrategy.RandomResultsStrategy"><code class="docutils literal notranslate"><span class="pre">RandomResultsStrategy</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cyrxnopt_analysis.ReadResultsStrategy">cyrxnopt_analysis.ReadResultsStrategy module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy"><code class="docutils literal notranslate"><span class="pre">ReadResultsStrategy</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cyrxnopt_analysis.SQSnobFitResultsStrategy">cyrxnopt_analysis.SQSnobFitResultsStrategy module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cyrxnopt_analysis.SQSnobFitResultsStrategy.SQSnobFitResultsStrategy"><code class="docutils literal notranslate"><span class="pre">SQSnobFitResultsStrategy</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cyrxnopt_analysis">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cyrxnopt_analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cyrxnopt_analysis</a></li>
+      <li class="breadcrumb-item active">cyrxnopt_analysis package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/cyrxnopt_analysis.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cyrxnopt-analysis-package">
+<h1>cyrxnopt_analysis package<a class="headerlink" href="#cyrxnopt-analysis-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cyrxnopt_analysis.alerts.html">cyrxnopt_analysis.alerts namespace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.alerts.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.alerts.html#module-cyrxnopt_analysis.alerts.Alert">cyrxnopt_analysis.alerts.Alert module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.alerts.html#cyrxnopt_analysis.alerts.Alert.Alert"><code class="docutils literal notranslate"><span class="pre">Alert</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.alerts.html#cyrxnopt_analysis.alerts.Alert.Alert.process"><code class="docutils literal notranslate"><span class="pre">Alert.process()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.alerts.html#cyrxnopt_analysis.alerts.Alert.Alert.throw"><code class="docutils literal notranslate"><span class="pre">Alert.throw</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.alerts.html#cyrxnopt_analysis.alerts.Alert.Alert.triggered"><code class="docutils literal notranslate"><span class="pre">Alert.triggered</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.alerts.html#module-cyrxnopt_analysis.alerts.OverBudget">cyrxnopt_analysis.alerts.OverBudget module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.alerts.html#cyrxnopt_analysis.alerts.OverBudget.OverBudget"><code class="docutils literal notranslate"><span class="pre">OverBudget</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.alerts.html#cyrxnopt_analysis.alerts.OverBudget.OverBudget.budget"><code class="docutils literal notranslate"><span class="pre">OverBudget.budget</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.alerts.html#cyrxnopt_analysis.alerts.OverBudget.OverBudget.errors"><code class="docutils literal notranslate"><span class="pre">OverBudget.errors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.alerts.html#cyrxnopt_analysis.alerts.OverBudget.OverBudget.process"><code class="docutils literal notranslate"><span class="pre">OverBudget.process()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cyrxnopt_analysis.apps.html">cyrxnopt_analysis.apps namespace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.apps.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.apps.html#module-cyrxnopt_analysis.apps.main">cyrxnopt_analysis.apps.main module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.apps.html#cyrxnopt_analysis.apps.main.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.apps.html#cyrxnopt_analysis.apps.main.parse_args"><code class="docutils literal notranslate"><span class="pre">parse_args()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cyrxnopt_analysis.metrics.html">cyrxnopt_analysis.metrics namespace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#module-cyrxnopt_analysis.metrics.Average">cyrxnopt_analysis.metrics.Average module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Average.Average"><code class="docutils literal notranslate"><span class="pre">Average</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Average.Average.average_value"><code class="docutils literal notranslate"><span class="pre">Average.average_value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Average.Average.calculate"><code class="docutils literal notranslate"><span class="pre">Average.calculate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Average.Average.total_cycles"><code class="docutils literal notranslate"><span class="pre">Average.total_cycles</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Average.Average.total_value"><code class="docutils literal notranslate"><span class="pre">Average.total_value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#module-cyrxnopt_analysis.metrics.Clearance">cyrxnopt_analysis.metrics.Clearance module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Clearance.Clearance"><code class="docutils literal notranslate"><span class="pre">Clearance</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Clearance.Clearance.calculate"><code class="docutils literal notranslate"><span class="pre">Clearance.calculate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Clearance.Clearance.clearance_rate"><code class="docutils literal notranslate"><span class="pre">Clearance.clearance_rate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Clearance.Clearance.fail_count"><code class="docutils literal notranslate"><span class="pre">Clearance.fail_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Clearance.Clearance.failed_results"><code class="docutils literal notranslate"><span class="pre">Clearance.failed_results</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Clearance.Clearance.success_count"><code class="docutils literal notranslate"><span class="pre">Clearance.success_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Clearance.Clearance.successful_results"><code class="docutils literal notranslate"><span class="pre">Clearance.successful_results</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#module-cyrxnopt_analysis.metrics.FeatureVariance">cyrxnopt_analysis.metrics.FeatureVariance module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance"><code class="docutils literal notranslate"><span class="pre">FeatureVariance</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.calculate"><code class="docutils literal notranslate"><span class="pre">FeatureVariance.calculate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.clearance_rate"><code class="docutils literal notranslate"><span class="pre">FeatureVariance.clearance_rate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.fail_count"><code class="docutils literal notranslate"><span class="pre">FeatureVariance.fail_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.failed_results"><code class="docutils literal notranslate"><span class="pre">FeatureVariance.failed_results</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.success_count"><code class="docutils literal notranslate"><span class="pre">FeatureVariance.success_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.successful_results"><code class="docutils literal notranslate"><span class="pre">FeatureVariance.successful_results</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#module-cyrxnopt_analysis.metrics.Metric">cyrxnopt_analysis.metrics.Metric module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Metric.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Metric.Metric.calculate"><code class="docutils literal notranslate"><span class="pre">Metric.calculate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.Metric.Metric.result"><code class="docutils literal notranslate"><span class="pre">Metric.result</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#module-cyrxnopt_analysis.metrics.SolveTime">cyrxnopt_analysis.metrics.SolveTime module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.SolveTime.SolveTime"><code class="docutils literal notranslate"><span class="pre">SolveTime</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.SolveTime.SolveTime.calculate"><code class="docutils literal notranslate"><span class="pre">SolveTime.calculate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.SolveTime.SolveTime.solve_time"><code class="docutils literal notranslate"><span class="pre">SolveTime.solve_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.SolveTime.SolveTime.solve_time_CI95"><code class="docutils literal notranslate"><span class="pre">SolveTime.solve_time_CI95</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.SolveTime.SolveTime.solve_time_std"><code class="docutils literal notranslate"><span class="pre">SolveTime.solve_time_std</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.SolveTime.SolveTime.total_cycles"><code class="docutils literal notranslate"><span class="pre">SolveTime.total_cycles</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.SolveTime.SolveTime.total_iterations"><code class="docutils literal notranslate"><span class="pre">SolveTime.total_iterations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#module-cyrxnopt_analysis.metrics.StdDev">cyrxnopt_analysis.metrics.StdDev module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.StdDev.StdDev"><code class="docutils literal notranslate"><span class="pre">StdDev</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.StdDev.StdDev.calculate"><code class="docutils literal notranslate"><span class="pre">StdDev.calculate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.StdDev.StdDev.sample_set"><code class="docutils literal notranslate"><span class="pre">StdDev.sample_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.StdDev.StdDev.stddev"><code class="docutils literal notranslate"><span class="pre">StdDev.stddev</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.metrics.html#cyrxnopt_analysis.metrics.StdDev.StdDev.total_cycles"><code class="docutils literal notranslate"><span class="pre">StdDev.total_cycles</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cyrxnopt_analysis.transforms.html">cyrxnopt_analysis.transforms namespace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.transforms.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.transforms.html#module-cyrxnopt_analysis.transforms.GetFunctionName">cyrxnopt_analysis.transforms.GetFunctionName module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.transforms.html#cyrxnopt_analysis.transforms.GetFunctionName.GetFunctionName"><code class="docutils literal notranslate"><span class="pre">GetFunctionName</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.transforms.html#cyrxnopt_analysis.transforms.GetFunctionName.GetFunctionName.map"><code class="docutils literal notranslate"><span class="pre">GetFunctionName.map()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.transforms.html#module-cyrxnopt_analysis.transforms.Transform">cyrxnopt_analysis.transforms.Transform module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.transforms.html#cyrxnopt_analysis.transforms.Transform.Transform"><code class="docutils literal notranslate"><span class="pre">Transform</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.transforms.html#cyrxnopt_analysis.transforms.Transform.Transform.map"><code class="docutils literal notranslate"><span class="pre">Transform.map()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cyrxnopt_analysis.utilities.html">cyrxnopt_analysis.utilities namespace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.utilities.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.utilities.html#module-cyrxnopt_analysis.utilities.get_files">cyrxnopt_analysis.utilities.get_files module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.utilities.html#cyrxnopt_analysis.utilities.get_files.get_files"><code class="docutils literal notranslate"><span class="pre">get_files()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cyrxnopt_analysis.utilities.html#module-cyrxnopt_analysis.utilities.optima_table">cyrxnopt_analysis.utilities.optima_table module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-cyrxnopt_analysis.AMLROResultsStrategy">
+<span id="cyrxnopt-analysis-amlroresultsstrategy-module"></span><h2>cyrxnopt_analysis.AMLROResultsStrategy module<a class="headerlink" href="#module-cyrxnopt_analysis.AMLROResultsStrategy" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.AMLROResultsStrategy.AMLROResultsStrategy">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.AMLROResultsStrategy.</span></span><span class="sig-name descname"><span class="pre">AMLROResultsStrategy</span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/AMLROResultsStrategy.html#AMLROResultsStrategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.AMLROResultsStrategy.AMLROResultsStrategy" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy" title="cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReadResultsStrategy</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.AMLROResultsStrategy.AMLROResultsStrategy.analyze_results">
+<span class="sig-name descname"><span class="pre">analyze_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a></span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/AMLROResultsStrategy.html#AMLROResultsStrategy.analyze_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.AMLROResultsStrategy.AMLROResultsStrategy.analyze_results" title="Link to this definition"></a></dt>
+<dd><p>Analyzes results from the AMLRO optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>result_file</strong> (<a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – File to read the results from. This must be
+formatted as a JSON file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Aggregated results from the optimization.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Results</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cyrxnopt_analysis.Analyzer">
+<span id="cyrxnopt-analysis-analyzer-module"></span><h2>cyrxnopt_analysis.Analyzer module<a class="headerlink" href="#module-cyrxnopt_analysis.Analyzer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.Analyzer.Analyzer">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.Analyzer.</span></span><span class="sig-name descname"><span class="pre">Analyzer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">read_strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy" title="cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy"><span class="pre">ReadResultsStrategy</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cyrxnopt_analysis/Analyzer.html#Analyzer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.Analyzer.Analyzer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.13/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.Analyzer.Analyzer.analyze_directory">
+<span class="sig-name descname"><span class="pre">analyze_directory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results_directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.13/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/Analyzer.html#Analyzer.analyze_directory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.Analyzer.Analyzer.analyze_directory" title="Link to this definition"></a></dt>
+<dd><p>Analyzes all files in the given directory that match the provided
+regex pattern.</p>
+<p>The results files must all be in the same format to be read correctly.
+If results files are in a different format, incorrect results may be
+collected or the program may crash.
+The algorithm used to analyze the file is determined by the value
+of read_strategy provided when the Analyzer was created.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results_directory</strong> (<a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Full path to the results directory with
+results files to analyze.</p></li>
+<li><p><strong>file_pattern</strong> (<a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Regex pattern that result files must match,
+defaults to r”*” for all files.</p></li>
+<li><p><strong>recursive</strong> (<a class="reference external" href="https://docs.python.org/3.13/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to find files recursively in subdirectories
+(True) or not (False). Defaults to “False”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Results object containing the results of the optimization.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.Analyzer.Analyzer.analyze_results">
+<span class="sig-name descname"><span class="pre">analyze_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a></span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/Analyzer.html#Analyzer.analyze_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.Analyzer.Analyzer.analyze_results" title="Link to this definition"></a></dt>
+<dd><p>Analyzes the given file, accumulating the results for an
+optimization algorithm.</p>
+<p>The algorithm used to analyze the file is determined by the value
+of read_strategy provided when the Analyzer was created.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>results_file</strong> (<a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Full path to the results file to analyze.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Results object containing the results of the optimization.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Results</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cyrxnopt_analysis.EDBOpResultsStrategy">
+<span id="cyrxnopt-analysis-edbopresultsstrategy-module"></span><h2>cyrxnopt_analysis.EDBOpResultsStrategy module<a class="headerlink" href="#module-cyrxnopt_analysis.EDBOpResultsStrategy" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.EDBOpResultsStrategy.EDBOpResultsStrategy">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.EDBOpResultsStrategy.</span></span><span class="sig-name descname"><span class="pre">EDBOpResultsStrategy</span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/EDBOpResultsStrategy.html#EDBOpResultsStrategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.EDBOpResultsStrategy.EDBOpResultsStrategy" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy" title="cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReadResultsStrategy</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.EDBOpResultsStrategy.EDBOpResultsStrategy.analyze_results">
+<span class="sig-name descname"><span class="pre">analyze_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a></span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/EDBOpResultsStrategy.html#EDBOpResultsStrategy.analyze_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.EDBOpResultsStrategy.EDBOpResultsStrategy.analyze_results" title="Link to this definition"></a></dt>
+<dd><p>Analyzes results from the EDBOP optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>result_file</strong> (<a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – File to read the results from. This must be
+formatted as a JSON file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Aggregated results from the optimization.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Results</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cyrxnopt_analysis.NMSimplexResultsStrategy">
+<span id="cyrxnopt-analysis-nmsimplexresultsstrategy-module"></span><h2>cyrxnopt_analysis.NMSimplexResultsStrategy module<a class="headerlink" href="#module-cyrxnopt_analysis.NMSimplexResultsStrategy" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.NMSimplexResultsStrategy.NMSimplexResultsStrategy">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.NMSimplexResultsStrategy.</span></span><span class="sig-name descname"><span class="pre">NMSimplexResultsStrategy</span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/NMSimplexResultsStrategy.html#NMSimplexResultsStrategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.NMSimplexResultsStrategy.NMSimplexResultsStrategy" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy" title="cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReadResultsStrategy</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.NMSimplexResultsStrategy.NMSimplexResultsStrategy.analyze_results">
+<span class="sig-name descname"><span class="pre">analyze_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a></span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/NMSimplexResultsStrategy.html#NMSimplexResultsStrategy.analyze_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.NMSimplexResultsStrategy.NMSimplexResultsStrategy.analyze_results" title="Link to this definition"></a></dt>
+<dd><p>Analyzes results from the Nelder-Mead optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>result_file</strong> (<a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – File to read the results from. This must be
+formatted as a JSON file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Aggregated results from the optimization.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Results</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cyrxnopt_analysis.OptimizerResult">
+<span id="cyrxnopt-analysis-optimizerresult-module"></span><h2>cyrxnopt_analysis.OptimizerResult module<a class="headerlink" href="#module-cyrxnopt_analysis.OptimizerResult" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.OptimizerResult.OptimizerResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.OptimizerResult.</span></span><span class="sig-name descname"><span class="pre">OptimizerResult</span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/OptimizerResult.html#OptimizerResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.OptimizerResult.OptimizerResult.best_coords">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">best_coords</span></span><a class="headerlink" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult.best_coords" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.OptimizerResult.OptimizerResult.best_iter">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">best_iter</span></span><a class="headerlink" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult.best_iter" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.OptimizerResult.OptimizerResult.best_value">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">best_value</span></span><a class="headerlink" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult.best_value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.OptimizerResult.OptimizerResult.filename">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">filename</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult.filename" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.OptimizerResult.OptimizerResult.message">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">message</span></span><a class="headerlink" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult.message" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.OptimizerResult.OptimizerResult.raw_results">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">raw_results</span></span><a class="headerlink" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult.raw_results" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.OptimizerResult.OptimizerResult.total_iter">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">total_iter</span></span><a class="headerlink" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult.total_iter" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cyrxnopt_analysis.RandomResultsStrategy">
+<span id="cyrxnopt-analysis-randomresultsstrategy-module"></span><h2>cyrxnopt_analysis.RandomResultsStrategy module<a class="headerlink" href="#module-cyrxnopt_analysis.RandomResultsStrategy" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.RandomResultsStrategy.RandomResultsStrategy">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.RandomResultsStrategy.</span></span><span class="sig-name descname"><span class="pre">RandomResultsStrategy</span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/RandomResultsStrategy.html#RandomResultsStrategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.RandomResultsStrategy.RandomResultsStrategy" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy" title="cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReadResultsStrategy</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.RandomResultsStrategy.RandomResultsStrategy.analyze_results">
+<span class="sig-name descname"><span class="pre">analyze_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a></span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/RandomResultsStrategy.html#RandomResultsStrategy.analyze_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.RandomResultsStrategy.RandomResultsStrategy.analyze_results" title="Link to this definition"></a></dt>
+<dd><p>Analyzes results from the Random sampling optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>result_file</strong> (<a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – File to read the results from. This must be
+formatted as a JSON file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Aggregated results from the optimization.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Results</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cyrxnopt_analysis.ReadResultsStrategy">
+<span id="cyrxnopt-analysis-readresultsstrategy-module"></span><h2>cyrxnopt_analysis.ReadResultsStrategy module<a class="headerlink" href="#module-cyrxnopt_analysis.ReadResultsStrategy" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.ReadResultsStrategy.</span></span><span class="sig-name descname"><span class="pre">ReadResultsStrategy</span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/ReadResultsStrategy.html#ReadResultsStrategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.13/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy.analyze_results">
+<span class="sig-name descname"><span class="pre">analyze_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cyrxnopt_analysis/ReadResultsStrategy.html#ReadResultsStrategy.analyze_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy.analyze_results" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cyrxnopt_analysis.SQSnobFitResultsStrategy">
+<span id="cyrxnopt-analysis-sqsnobfitresultsstrategy-module"></span><h2>cyrxnopt_analysis.SQSnobFitResultsStrategy module<a class="headerlink" href="#module-cyrxnopt_analysis.SQSnobFitResultsStrategy" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.SQSnobFitResultsStrategy.SQSnobFitResultsStrategy">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.SQSnobFitResultsStrategy.</span></span><span class="sig-name descname"><span class="pre">SQSnobFitResultsStrategy</span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/SQSnobFitResultsStrategy.html#SQSnobFitResultsStrategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.SQSnobFitResultsStrategy.SQSnobFitResultsStrategy" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy" title="cyrxnopt_analysis.ReadResultsStrategy.ReadResultsStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReadResultsStrategy</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.SQSnobFitResultsStrategy.SQSnobFitResultsStrategy.analyze_results">
+<span class="sig-name descname"><span class="pre">analyze_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a></span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/SQSnobFitResultsStrategy.html#SQSnobFitResultsStrategy.analyze_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.SQSnobFitResultsStrategy.SQSnobFitResultsStrategy.analyze_results" title="Link to this definition"></a></dt>
+<dd><p>Analyzes results from the SQSnobFit optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>result_file</strong> (<a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – File to read the results from. This must be
+formatted as a JSON file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Aggregated results from the optimization.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Results</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cyrxnopt_analysis">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cyrxnopt_analysis" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="cyrxnopt_analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cyrxnopt_analysis.alerts.html" class="btn btn-neutral float-right" title="cyrxnopt_analysis.alerts namespace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, 2026 Iowa State University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

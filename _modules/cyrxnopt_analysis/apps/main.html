@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cyrxnopt_analysis.apps.main &mdash; cyrxnopt_analysis 0.0.post1.dev1+gb28f3d652 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=414f336e"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            cyrxnopt_analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">Module Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">cyrxnopt_analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">cyrxnopt_analysis.apps.main</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for cyrxnopt_analysis.apps.main</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># from cyrxnopt_analysis.alerts.OverBudget import OverBudget</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyrxnopt_analysis.AMLROResultsStrategy</span><span class="w"> </span><span class="kn">import</span> <span class="n">AMLROResultsStrategy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyrxnopt_analysis.Analyzer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Analyzer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyrxnopt_analysis.EDBOpResultsStrategy</span><span class="w"> </span><span class="kn">import</span> <span class="n">EDBOpResultsStrategy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyrxnopt_analysis.metrics.Average</span><span class="w"> </span><span class="kn">import</span> <span class="n">Average</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyrxnopt_analysis.metrics.Clearance</span><span class="w"> </span><span class="kn">import</span> <span class="n">Clearance</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyrxnopt_analysis.metrics.SolveTime</span><span class="w"> </span><span class="kn">import</span> <span class="n">SolveTime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyrxnopt_analysis.metrics.StdDev</span><span class="w"> </span><span class="kn">import</span> <span class="n">StdDev</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyrxnopt_analysis.NMSimplexResultsStrategy</span><span class="w"> </span><span class="kn">import</span> <span class="n">NMSimplexResultsStrategy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyrxnopt_analysis.RandomResultsStrategy</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomResultsStrategy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyrxnopt_analysis.SQSnobFitResultsStrategy</span><span class="w"> </span><span class="kn">import</span> <span class="n">SQSnobFitResultsStrategy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyrxnopt_analysis.transforms.GetFunctionName</span><span class="w"> </span><span class="kn">import</span> <span class="n">GetFunctionName</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyrxnopt_analysis.utilities.optima_table</span><span class="w"> </span><span class="kn">import</span> <span class="n">optima</span>
+
+
+<div class="viewcode-block" id="parse_args">
+<a class="viewcode-back" href="../../../api/cyrxnopt_analysis.apps.html#cyrxnopt_analysis.apps.main.parse_args">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_args</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse command line arguments&quot;&quot;&quot;</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+
+    <span class="c1"># parser.add_argument(&quot;output_dir&quot;, help=&quot;Location for output data.&quot;)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;optimizer&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Optimizer to use.&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;results_dir&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Location for results file to analyze.&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-t&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--threshold&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Clearance rate error threshold. Defaults to 0.02.&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-fp&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--filepattern&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;results.json&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="p">(</span>
+            <span class="s2">&quot;File regex pattern to search for results files. Defaults to &quot;</span>
+            <span class="s1">&#39;&quot;results.json&quot;&#39;</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-o&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--outdir&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="p">(</span>
+            <span class="s2">&quot;Output directory for all analysis results.&quot;</span>
+            <span class="s1">&#39;Defaults to &quot;analysis/{YYYY-MM-DD}_</span><span class="si">{optimizer}</span><span class="s1">&quot;&#39;</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--results-filename&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="p">(</span>
+            <span class="s2">&quot;Filename to save the per-function analysis summary CSV to &quot;</span>
+            <span class="s2">&quot;(clearance rate, average successful value, solve time, &quot;</span>
+            <span class="s2">&quot;solve time std, and solve time CI95). Defaults to &quot;</span>
+            <span class="s1">&#39;&quot;</span><span class="si">{outdir}</span><span class="s1">/</span><span class="si">{optimizer}</span><span class="s1">_summary.csv&quot;.&#39;</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">args</span></div>
+
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../../../api/cyrxnopt_analysis.apps.html#cyrxnopt_analysis.apps.main.main">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Entry point to an analysis script.&quot;&quot;&quot;</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="n">optimizer_lower</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">optimizer_lower</span> <span class="o">==</span> <span class="s2">&quot;amlro&quot;</span><span class="p">:</span>
+        <span class="n">results_strategy</span> <span class="o">=</span> <span class="n">AMLROResultsStrategy</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">optimizer_lower</span> <span class="o">==</span> <span class="s2">&quot;edbop&quot;</span><span class="p">:</span>
+        <span class="n">results_strategy</span> <span class="o">=</span> <span class="n">EDBOpResultsStrategy</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">optimizer_lower</span> <span class="o">==</span> <span class="s2">&quot;nmsimplex&quot;</span><span class="p">:</span>
+        <span class="n">results_strategy</span> <span class="o">=</span> <span class="n">NMSimplexResultsStrategy</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">optimizer_lower</span> <span class="o">==</span> <span class="s2">&quot;sqsnobfit&quot;</span><span class="p">:</span>
+        <span class="n">results_strategy</span> <span class="o">=</span> <span class="n">SQSnobFitResultsStrategy</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">optimizer_lower</span> <span class="o">==</span> <span class="s2">&quot;random&quot;</span><span class="p">:</span>
+        <span class="n">results_strategy</span> <span class="o">=</span> <span class="n">RandomResultsStrategy</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+            <span class="s2">&quot;Invalid optimizer provided: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">optimizer</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Default to an output directory if none given</span>
+    <span class="n">outdir</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">outdir</span>
+    <span class="k">if</span> <span class="n">outdir</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">outdir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;analysis&quot;</span><span class="p">)</span>
+        <span class="n">outdir</span> <span class="o">/=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">optimizer_lower</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="c1"># Ensure that outdir is a path</span>
+    <span class="n">outdir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">outdir</span><span class="p">)</span>
+
+    <span class="c1"># Create the output directory if it doesn&#39;t exist</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">outdir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">outdir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">analyzer</span> <span class="o">=</span> <span class="n">Analyzer</span><span class="p">(</span><span class="n">results_strategy</span><span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">analyze_directory</span><span class="p">(</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">results_dir</span><span class="p">,</span> <span class="n">file_pattern</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">filepattern</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="c1"># if optimizer_lower == &quot;amlro&quot;:</span>
+    <span class="c1">#     results = analyzer.analyze_directory(</span>
+    <span class="c1">#         args.results_dir, file_pattern=r&quot;training_set_file.txt&quot;, recursive=True</span>
+    <span class="c1">#     )</span>
+    <span class="c1"># elif optimizer_lower == &quot;edbop&quot;:</span>
+    <span class="c1">#     results = analyzer.analyze_directory(</span>
+    <span class="c1">#     args.results_dir, file_pattern=r&quot;my_optimization.csv&quot;, recursive=True</span>
+    <span class="c1"># )</span>
+
+    <span class="c1"># results = analyzer.analyze_directory(</span>
+    <span class="c1">#    args.results_dir, file_pattern=r&quot;results.json&quot;, recursive=True</span>
+    <span class="c1"># )</span>
+
+    <span class="c1"># Data validation</span>
+
+    <span class="c1"># # Check if any of the results went over the budget</span>
+    <span class="c1"># over_budget = OverBudget(100, throw=False)</span>
+    <span class="c1"># over_budget.process(results)</span>
+    <span class="c1"># print(&quot;Number of errors: &quot;, len(over_budget.errors))</span>
+
+    <span class="c1"># for error in over_budget.errors:</span>
+    <span class="c1">#     print(error.filename)</span>
+    <span class="c1">#     print(error.total_iter)</span>
+
+    <span class="c1"># if len(over_budget.errors):</span>
+    <span class="c1">#     raise RuntimeError(&quot;Over budget!&quot;)</span>
+
+    <span class="c1"># Data transforms</span>
+
+    <span class="c1"># Get the function used for each result</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">GetFunctionName</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+    <span class="c1"># Metric calculations</span>
+
+    <span class="n">cleared_runs_tbl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Cleared runs&quot;</span><span class="p">])</span>
+    <span class="n">iterations_tbl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Iterations needed&quot;</span><span class="p">])</span>
+
+    <span class="n">cleared_runs_tbl</span><span class="p">[</span><span class="s2">&quot;Cleared runs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">optimizer_lower</span><span class="p">]</span>
+    <span class="n">iterations_tbl</span><span class="p">[</span><span class="s2">&quot;Iterations needed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">optimizer_lower</span><span class="p">]</span>
+
+    <span class="n">summary_rows</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">foo</span> <span class="ow">in</span> <span class="n">optima</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">filtered_results</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">foo</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# of results for </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_results</span><span class="p">)))</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_results</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="n">clearance</span> <span class="o">=</span> <span class="n">Clearance</span><span class="p">(</span><span class="n">optima</span><span class="p">[</span><span class="n">foo</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">threshold</span><span class="p">)</span>
+        <span class="n">clearance</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">filtered_results</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Clearance rate: &quot;</span><span class="p">,</span> <span class="n">clearance</span><span class="o">.</span><span class="n">clearance_rate</span><span class="p">)</span>
+
+        <span class="n">solve_time</span> <span class="o">=</span> <span class="n">SolveTime</span><span class="p">()</span>
+        <span class="n">solve_time</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">clearance</span><span class="o">.</span><span class="n">successful_results</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solve time: &quot;</span><span class="p">,</span> <span class="n">solve_time</span><span class="o">.</span><span class="n">solve_time</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solve time Std: &quot;</span><span class="p">,</span> <span class="n">solve_time</span><span class="o">.</span><span class="n">solve_time_std</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solve time CI95: &quot;</span><span class="p">,</span> <span class="n">solve_time</span><span class="o">.</span><span class="n">solve_time_CI95</span><span class="p">)</span>
+
+        <span class="n">average_value_successful</span> <span class="o">=</span> <span class="n">Average</span><span class="p">()</span>
+        <span class="n">average_value_successful</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">clearance</span><span class="o">.</span><span class="n">successful_results</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">optima</span><span class="p">[</span><span class="n">foo</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">average_value_successful_error</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">optima</span><span class="p">[</span><span class="n">foo</span><span class="p">]</span> <span class="o">-</span> <span class="n">average_value_successful</span><span class="o">.</span><span class="n">result</span>
+            <span class="p">)</span> <span class="o">/</span> <span class="n">optima</span><span class="p">[</span><span class="n">foo</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">average_value_successful_error</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">optima</span><span class="p">[</span><span class="n">foo</span><span class="p">]</span> <span class="o">-</span> <span class="n">average_value_successful</span><span class="o">.</span><span class="n">result</span>
+            <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;Average successful value: </span><span class="si">{:.3f}</span><span class="s2">, </span><span class="si">{:.3f}</span><span class="s2"> error&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">average_value_successful</span><span class="o">.</span><span class="n">result</span><span class="p">,</span> <span class="n">average_value_successful_error</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">std_dev_value_successful</span> <span class="o">=</span> <span class="n">StdDev</span><span class="p">()</span>
+        <span class="n">std_dev_value_successful</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">clearance</span><span class="o">.</span><span class="n">successful_results</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;std_dev successful value: </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">std_dev_value_successful</span><span class="o">.</span><span class="n">result</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">average_value_total</span> <span class="o">=</span> <span class="n">Average</span><span class="p">()</span>
+        <span class="n">average_value_total</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">filtered_results</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">optima</span><span class="p">[</span><span class="n">foo</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">average_value_total_error</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">optima</span><span class="p">[</span><span class="n">foo</span><span class="p">]</span> <span class="o">-</span> <span class="n">average_value_total</span><span class="o">.</span><span class="n">result</span>
+            <span class="p">)</span> <span class="o">/</span> <span class="n">optima</span><span class="p">[</span><span class="n">foo</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">average_value_total_error</span> <span class="o">=</span> <span class="n">optima</span><span class="p">[</span><span class="n">foo</span><span class="p">]</span> <span class="o">-</span> <span class="n">average_value_total</span><span class="o">.</span><span class="n">result</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;Average total value: </span><span class="si">{:.3f}</span><span class="s2">, </span><span class="si">{:.3f}</span><span class="s2"> error&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">average_value_total</span><span class="o">.</span><span class="n">result</span><span class="p">,</span> <span class="n">average_value_total_error</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">std_dev_value_total</span> <span class="o">=</span> <span class="n">StdDev</span><span class="p">()</span>
+        <span class="n">std_dev_value_total</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">filtered_results</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;std_dev total value: </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">std_dev_value_total</span><span class="o">.</span><span class="n">result</span><span class="p">))</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Real optimum:&quot;</span><span class="p">,</span> <span class="n">optima</span><span class="p">[</span><span class="n">foo</span><span class="p">])</span>
+
+        <span class="c1"># Add data to the dataframes</span>
+        <span class="n">cleared_runs_tbl</span><span class="p">[</span><span class="n">foo</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">clearance</span><span class="o">.</span><span class="n">success_count</span><span class="p">]</span>
+        <span class="n">iterations_tbl</span><span class="p">[</span><span class="n">foo</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">solve_time</span><span class="o">.</span><span class="n">total_iterations</span><span class="p">]</span>
+
+        <span class="n">summary_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="n">foo</span><span class="p">,</span>
+                <span class="s2">&quot;clearance_rate&quot;</span><span class="p">:</span> <span class="n">clearance</span><span class="o">.</span><span class="n">clearance_rate</span><span class="p">,</span>
+                <span class="s2">&quot;average_successful_value&quot;</span><span class="p">:</span> <span class="n">average_value_successful</span><span class="o">.</span><span class="n">result</span><span class="p">,</span>
+                <span class="s2">&quot;solve_time&quot;</span><span class="p">:</span> <span class="n">solve_time</span><span class="o">.</span><span class="n">solve_time</span><span class="p">,</span>
+                <span class="s2">&quot;solve_time_std&quot;</span><span class="p">:</span> <span class="n">solve_time</span><span class="o">.</span><span class="n">solve_time_std</span><span class="p">,</span>
+                <span class="s2">&quot;solve_time_ci95&quot;</span><span class="p">:</span> <span class="n">solve_time</span><span class="o">.</span><span class="n">solve_time_CI95</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+
+    <span class="n">cleared_runs_tbl</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+        <span class="n">outdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">optimizer_lower</span><span class="si">}</span><span class="s2">_no_noise_clearance.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+    <span class="n">iterations_tbl</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+        <span class="n">outdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">optimizer_lower</span><span class="si">}</span><span class="s2">_no_noise_iterations.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+
+    <span class="n">results_filename</span> <span class="o">=</span> <span class="n">outdir</span> <span class="o">/</span> <span class="p">(</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">results_filename</span> <span class="ow">or</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">optimizer_lower</span><span class="si">}</span><span class="s2">_summary.csv&quot;</span>
+    <span class="p">)</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">summary_rows</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">results_filename</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">cleared_runs_tbl</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">iterations_tbl</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, 2026 Iowa State University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

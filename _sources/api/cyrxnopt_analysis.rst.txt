@@ -1,0 +1,89 @@
+cyrxnopt\_analysis package
+==========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   cyrxnopt_analysis.alerts
+   cyrxnopt_analysis.apps
+   cyrxnopt_analysis.metrics
+   cyrxnopt_analysis.transforms
+   cyrxnopt_analysis.utilities
+
+Submodules
+----------
+
+cyrxnopt\_analysis.AMLROResultsStrategy module
+----------------------------------------------
+
+.. automodule:: cyrxnopt_analysis.AMLROResultsStrategy
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.Analyzer module
+----------------------------------
+
+.. automodule:: cyrxnopt_analysis.Analyzer
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.EDBOpResultsStrategy module
+----------------------------------------------
+
+.. automodule:: cyrxnopt_analysis.EDBOpResultsStrategy
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.NMSimplexResultsStrategy module
+--------------------------------------------------
+
+.. automodule:: cyrxnopt_analysis.NMSimplexResultsStrategy
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.OptimizerResult module
+-----------------------------------------
+
+.. automodule:: cyrxnopt_analysis.OptimizerResult
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.RandomResultsStrategy module
+-----------------------------------------------
+
+.. automodule:: cyrxnopt_analysis.RandomResultsStrategy
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.ReadResultsStrategy module
+---------------------------------------------
+
+.. automodule:: cyrxnopt_analysis.ReadResultsStrategy
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.SQSnobFitResultsStrategy module
+--------------------------------------------------
+
+.. automodule:: cyrxnopt_analysis.SQSnobFitResultsStrategy
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: cyrxnopt_analysis
+   :members:
+   :show-inheritance:
+   :undoc-members:

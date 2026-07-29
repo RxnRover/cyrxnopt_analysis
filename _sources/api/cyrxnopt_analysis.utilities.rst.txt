@@ -1,0 +1,23 @@
+cyrxnopt\_analysis.utilities namespace
+======================================
+
+.. py:module:: cyrxnopt_analysis.utilities
+
+Submodules
+----------
+
+cyrxnopt\_analysis.utilities.get\_files module
+----------------------------------------------
+
+.. automodule:: cyrxnopt_analysis.utilities.get_files
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.utilities.optima\_table module
+-------------------------------------------------
+
+.. automodule:: cyrxnopt_analysis.utilities.optima_table
+   :members:
+   :show-inheritance:
+   :undoc-members:

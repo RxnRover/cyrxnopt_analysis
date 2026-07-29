@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cyrxnopt_analysis.metrics namespace &mdash; cyrxnopt_analysis 0.0.post1.dev1+gb28f3d652 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=414f336e"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cyrxnopt_analysis.transforms namespace" href="cyrxnopt_analysis.transforms.html" />
+    <link rel="prev" title="cyrxnopt_analysis.apps namespace" href="cyrxnopt_analysis.apps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            cyrxnopt_analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cyrxnopt_analysis.html">cyrxnopt_analysis package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cyrxnopt_analysis.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.alerts.html">cyrxnopt_analysis.alerts namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.apps.html">cyrxnopt_analysis.apps namespace</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">cyrxnopt_analysis.metrics namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.transforms.html">cyrxnopt_analysis.transforms namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cyrxnopt_analysis.utilities.html">cyrxnopt_analysis.utilities namespace</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.html#module-cyrxnopt_analysis.AMLROResultsStrategy">cyrxnopt_analysis.AMLROResultsStrategy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.html#module-cyrxnopt_analysis.Analyzer">cyrxnopt_analysis.Analyzer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.html#module-cyrxnopt_analysis.EDBOpResultsStrategy">cyrxnopt_analysis.EDBOpResultsStrategy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.html#module-cyrxnopt_analysis.NMSimplexResultsStrategy">cyrxnopt_analysis.NMSimplexResultsStrategy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.html#module-cyrxnopt_analysis.OptimizerResult">cyrxnopt_analysis.OptimizerResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.html#module-cyrxnopt_analysis.RandomResultsStrategy">cyrxnopt_analysis.RandomResultsStrategy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.html#module-cyrxnopt_analysis.ReadResultsStrategy">cyrxnopt_analysis.ReadResultsStrategy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.html#module-cyrxnopt_analysis.SQSnobFitResultsStrategy">cyrxnopt_analysis.SQSnobFitResultsStrategy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cyrxnopt_analysis.html#module-cyrxnopt_analysis">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cyrxnopt_analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cyrxnopt_analysis</a></li>
+          <li class="breadcrumb-item"><a href="cyrxnopt_analysis.html">cyrxnopt_analysis package</a></li>
+      <li class="breadcrumb-item active">cyrxnopt_analysis.metrics namespace</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/cyrxnopt_analysis.metrics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-cyrxnopt_analysis.metrics">
+<span id="cyrxnopt-analysis-metrics-namespace"></span><h1>cyrxnopt_analysis.metrics namespace<a class="headerlink" href="#module-cyrxnopt_analysis.metrics" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-cyrxnopt_analysis.metrics.Average">
+<span id="cyrxnopt-analysis-metrics-average-module"></span><h2>cyrxnopt_analysis.metrics.Average module<a class="headerlink" href="#module-cyrxnopt_analysis.metrics.Average" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Average.Average">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.metrics.Average.</span></span><span class="sig-name descname"><span class="pre">Average</span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/metrics/Average.html#Average"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.metrics.Average.Average" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cyrxnopt_analysis.metrics.Metric.Metric" title="cyrxnopt_analysis.metrics.Metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Average.Average.average_value">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">average_value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.Average.Average.average_value" title="Link to this definition"></a></dt>
+<dd><p>Averaged optimization iterations needed to reach a successful        optimization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Average optimization iteration count.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Average.Average.calculate">
+<span class="sig-name descname"><span class="pre">calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cyrxnopt_analysis/metrics/Average.html#Average.calculate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.metrics.Average.Average.calculate" title="Link to this definition"></a></dt>
+<dd><p>Calculate the metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>results</strong> (<em>List</em><em>[</em><em>Results</em><em>]</em>) – Results to use when calculating the metric</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Average.Average.total_cycles">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">total_cycles</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.Average.Average.total_cycles" title="Link to this definition"></a></dt>
+<dd><p>Number of optimization cycle results used for calculating this
+metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Total cycle count.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Average.Average.total_value">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">total_value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.Average.Average.total_value" title="Link to this definition"></a></dt>
+<dd><p>Total summed value of all optimization cycles’ best values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sum of best values of cycles.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cyrxnopt_analysis.metrics.Clearance">
+<span id="cyrxnopt-analysis-metrics-clearance-module"></span><h2>cyrxnopt_analysis.metrics.Clearance module<a class="headerlink" href="#module-cyrxnopt_analysis.metrics.Clearance" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Clearance.Clearance">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.metrics.Clearance.</span></span><span class="sig-name descname"><span class="pre">Clearance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cyrxnopt_analysis/metrics/Clearance.html#Clearance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.metrics.Clearance.Clearance" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cyrxnopt_analysis.metrics.Metric.Metric" title="cyrxnopt_analysis.metrics.Metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Clearance.Clearance.calculate">
+<span class="sig-name descname"><span class="pre">calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cyrxnopt_analysis/metrics/Clearance.html#Clearance.calculate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.metrics.Clearance.Clearance.calculate" title="Link to this definition"></a></dt>
+<dd><p>Calculates the clearance rate of the collection of results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>results</strong> (<em>List</em><em>[</em><em>Results</em><em>]</em>) – Results to use when calculating the metric</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Clearance.Clearance.clearance_rate">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">clearance_rate</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.Clearance.Clearance.clearance_rate" title="Link to this definition"></a></dt>
+<dd><p>Success rate of the optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Successful cycle rate out of the number of total cycles.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Clearance.Clearance.fail_count">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fail_count</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.Clearance.Clearance.fail_count" title="Link to this definition"></a></dt>
+<dd><p>Number of failed cycles counted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of failed cycles</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Clearance.Clearance.failed_results">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">failed_results</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.Clearance.Clearance.failed_results" title="Link to this definition"></a></dt>
+<dd><p>List of only results that failed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of failed result objects.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult">OptimizerResult</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Clearance.Clearance.success_count">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">success_count</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.Clearance.Clearance.success_count" title="Link to this definition"></a></dt>
+<dd><p>Number of successful cycles counted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of successful cycles</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Clearance.Clearance.successful_results">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">successful_results</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.Clearance.Clearance.successful_results" title="Link to this definition"></a></dt>
+<dd><p>List of only results that were successful.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of successful result objects.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult">OptimizerResult</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cyrxnopt_analysis.metrics.FeatureVariance">
+<span id="cyrxnopt-analysis-metrics-featurevariance-module"></span><h2>cyrxnopt_analysis.metrics.FeatureVariance module<a class="headerlink" href="#module-cyrxnopt_analysis.metrics.FeatureVariance" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.metrics.FeatureVariance.</span></span><span class="sig-name descname"><span class="pre">FeatureVariance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cyrxnopt_analysis/metrics/FeatureVariance.html#FeatureVariance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cyrxnopt_analysis.metrics.Metric.Metric" title="cyrxnopt_analysis.metrics.Metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.calculate">
+<span class="sig-name descname"><span class="pre">calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cyrxnopt_analysis/metrics/FeatureVariance.html#FeatureVariance.calculate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.calculate" title="Link to this definition"></a></dt>
+<dd><p>Calculates the clearance rate of the collection of results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>results</strong> (<em>List</em><em>[</em><em>Results</em><em>]</em>) – Results to use when calculating the metric</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.clearance_rate">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">clearance_rate</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.clearance_rate" title="Link to this definition"></a></dt>
+<dd><p>Success rate of the optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Successful cycle rate out of the number of total cycles.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.fail_count">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fail_count</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.fail_count" title="Link to this definition"></a></dt>
+<dd><p>Number of failed cycles counted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of failed cycles</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.failed_results">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">failed_results</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.failed_results" title="Link to this definition"></a></dt>
+<dd><p>List of only results that failed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of failed result objects.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult">OptimizerResult</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.success_count">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">success_count</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.success_count" title="Link to this definition"></a></dt>
+<dd><p>Number of successful cycles counted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of successful cycles</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.successful_results">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">successful_results</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.FeatureVariance.FeatureVariance.successful_results" title="Link to this definition"></a></dt>
+<dd><p>List of only results that were successful.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of successful result objects.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult">OptimizerResult</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cyrxnopt_analysis.metrics.Metric">
+<span id="cyrxnopt-analysis-metrics-metric-module"></span><h2>cyrxnopt_analysis.metrics.Metric module<a class="headerlink" href="#module-cyrxnopt_analysis.metrics.Metric" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Metric.Metric">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.metrics.Metric.</span></span><span class="sig-name descname"><span class="pre">Metric</span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/metrics/Metric.html#Metric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.metrics.Metric.Metric" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.13/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Metric.Metric.calculate">
+<span class="sig-name descname"><span class="pre">calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cyrxnopt_analysis/metrics/Metric.html#Metric.calculate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.metrics.Metric.Metric.calculate" title="Link to this definition"></a></dt>
+<dd><p>Calculate the metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>results</strong> (<em>List</em><em>[</em><em>Results</em><em>]</em>) – Results to use when calculating the metric</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/exceptions.html#RuntimeError" title="(in Python v3.13)"><strong>RuntimeError</strong></a> – This function must be overridden by chilren.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.Metric.Metric.result">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">result</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.Metric.Metric.result" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cyrxnopt_analysis.metrics.SolveTime">
+<span id="cyrxnopt-analysis-metrics-solvetime-module"></span><h2>cyrxnopt_analysis.metrics.SolveTime module<a class="headerlink" href="#module-cyrxnopt_analysis.metrics.SolveTime" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.SolveTime.SolveTime">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.metrics.SolveTime.</span></span><span class="sig-name descname"><span class="pre">SolveTime</span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/metrics/SolveTime.html#SolveTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.metrics.SolveTime.SolveTime" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cyrxnopt_analysis.metrics.Metric.Metric" title="cyrxnopt_analysis.metrics.Metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.SolveTime.SolveTime.calculate">
+<span class="sig-name descname"><span class="pre">calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cyrxnopt_analysis/metrics/SolveTime.html#SolveTime.calculate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.metrics.SolveTime.SolveTime.calculate" title="Link to this definition"></a></dt>
+<dd><p>Calculate the metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>results</strong> (<em>List</em><em>[</em><em>Results</em><em>]</em>) – Results to use when calculating the metric</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/exceptions.html#RuntimeError" title="(in Python v3.13)"><strong>RuntimeError</strong></a> – This function must be overridden by chilren.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.SolveTime.SolveTime.solve_time">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">solve_time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.SolveTime.SolveTime.solve_time" title="Link to this definition"></a></dt>
+<dd><p>Averaged optimization iterations needed to reach a successful        optimization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Average optimization iteration count.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.SolveTime.SolveTime.solve_time_CI95">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">solve_time_CI95</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.SolveTime.SolveTime.solve_time_CI95" title="Link to this definition"></a></dt>
+<dd><p>CI 95% of average optimization iterations needed to reach a successful        optimization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CI</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.SolveTime.SolveTime.solve_time_std">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">solve_time_std</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.SolveTime.SolveTime.solve_time_std" title="Link to this definition"></a></dt>
+<dd><p>Standard deviation of average optimization iterations needed to
+reach a successful optimization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Std.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.SolveTime.SolveTime.total_cycles">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">total_cycles</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.SolveTime.SolveTime.total_cycles" title="Link to this definition"></a></dt>
+<dd><p>Number of optimization cycle results used for calculating this
+metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Total cycle count.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.SolveTime.SolveTime.total_iterations">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">total_iterations</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.SolveTime.SolveTime.total_iterations" title="Link to this definition"></a></dt>
+<dd><p>Total number of optimization iterations through all of the results
+used to reach the best result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Total iteration count.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cyrxnopt_analysis.metrics.StdDev">
+<span id="cyrxnopt-analysis-metrics-stddev-module"></span><h2>cyrxnopt_analysis.metrics.StdDev module<a class="headerlink" href="#module-cyrxnopt_analysis.metrics.StdDev" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.StdDev.StdDev">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">cyrxnopt_analysis.metrics.StdDev.</span></span><span class="sig-name descname"><span class="pre">StdDev</span></span><a class="reference internal" href="../_modules/cyrxnopt_analysis/metrics/StdDev.html#StdDev"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.metrics.StdDev.StdDev" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cyrxnopt_analysis.metrics.Metric.Metric" title="cyrxnopt_analysis.metrics.Metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.StdDev.StdDev.calculate">
+<span class="sig-name descname"><span class="pre">calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.13/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="cyrxnopt_analysis.html#cyrxnopt_analysis.OptimizerResult.OptimizerResult" title="cyrxnopt_analysis.OptimizerResult.OptimizerResult"><span class="pre">OptimizerResult</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cyrxnopt_analysis/metrics/StdDev.html#StdDev.calculate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyrxnopt_analysis.metrics.StdDev.StdDev.calculate" title="Link to this definition"></a></dt>
+<dd><p>Calculate the metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>results</strong> (<em>List</em><em>[</em><em>Results</em><em>]</em>) – Results to use when calculating the metric</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.StdDev.StdDev.sample_set">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">sample_set</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.StdDev.StdDev.sample_set" title="Link to this definition"></a></dt>
+<dd><p>Sample set of best values to calculate Std. Dev. on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sample set of best values.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.StdDev.StdDev.stddev">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">stddev</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.StdDev.StdDev.stddev" title="Link to this definition"></a></dt>
+<dd><p>Standard deviation of optimization iterations’ best values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Standard deviation of best values.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cyrxnopt_analysis.metrics.StdDev.StdDev.total_cycles">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">total_cycles</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><a class="headerlink" href="#cyrxnopt_analysis.metrics.StdDev.StdDev.total_cycles" title="Link to this definition"></a></dt>
+<dd><p>Number of optimization cycle results used for calculating this
+metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Total cycle count.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.13/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cyrxnopt_analysis.apps.html" class="btn btn-neutral float-left" title="cyrxnopt_analysis.apps namespace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cyrxnopt_analysis.transforms.html" class="btn btn-neutral float-right" title="cyrxnopt_analysis.transforms namespace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, 2026 Iowa State University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

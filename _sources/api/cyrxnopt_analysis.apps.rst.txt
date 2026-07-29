@@ -1,0 +1,15 @@
+cyrxnopt\_analysis.apps namespace
+=================================
+
+.. py:module:: cyrxnopt_analysis.apps
+
+Submodules
+----------
+
+cyrxnopt\_analysis.apps.main module
+-----------------------------------
+
+.. automodule:: cyrxnopt_analysis.apps.main
+   :members:
+   :show-inheritance:
+   :undoc-members:

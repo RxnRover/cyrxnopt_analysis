@@ -1,0 +1,23 @@
+cyrxnopt\_analysis.alerts namespace
+===================================
+
+.. py:module:: cyrxnopt_analysis.alerts
+
+Submodules
+----------
+
+cyrxnopt\_analysis.alerts.Alert module
+--------------------------------------
+
+.. automodule:: cyrxnopt_analysis.alerts.Alert
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.alerts.OverBudget module
+-------------------------------------------
+
+.. automodule:: cyrxnopt_analysis.alerts.OverBudget
+   :members:
+   :show-inheritance:
+   :undoc-members:

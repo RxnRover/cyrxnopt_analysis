@@ -1,0 +1,55 @@
+cyrxnopt\_analysis.metrics namespace
+====================================
+
+.. py:module:: cyrxnopt_analysis.metrics
+
+Submodules
+----------
+
+cyrxnopt\_analysis.metrics.Average module
+-----------------------------------------
+
+.. automodule:: cyrxnopt_analysis.metrics.Average
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.metrics.Clearance module
+-------------------------------------------
+
+.. automodule:: cyrxnopt_analysis.metrics.Clearance
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.metrics.FeatureVariance module
+-------------------------------------------------
+
+.. automodule:: cyrxnopt_analysis.metrics.FeatureVariance
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.metrics.Metric module
+----------------------------------------
+
+.. automodule:: cyrxnopt_analysis.metrics.Metric
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.metrics.SolveTime module
+-------------------------------------------
+
+.. automodule:: cyrxnopt_analysis.metrics.SolveTime
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+cyrxnopt\_analysis.metrics.StdDev module
+----------------------------------------
+
+.. automodule:: cyrxnopt_analysis.metrics.StdDev
+   :members:
+   :show-inheritance:
+   :undoc-members:
