@@ -19,10 +19,10 @@ class FeatureVariance(Metric):
         self._threshold = threshold
 
         # Default the property values
-        self._clearance_rate = 0
-        self._failed_results = []
-        self._success_count = 0
-        self._successful_results = []
+        self._clearance_rate: int = 0
+        self._failed_results: List[OptimizerResult] = []
+        self._success_count: int = 0
+        self._successful_results: List[OptimizerResult] = []
 
         super(FeatureVariance, self).__init__()
 

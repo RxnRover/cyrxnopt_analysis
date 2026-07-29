@@ -23,7 +23,8 @@ class Analyzer:
         """
 
         results = self._read_strategy.analyze_results(results_file)
-        results.filename = results_file
+        if results is not None:
+            results.filename = results_file
 
         return results
 
@@ -61,6 +62,7 @@ class Analyzer:
         for result_file in files:
             result = self.analyze_results(result_file)
 
-            results.append(result)
+            if result is not None:
+                results.append(result)
 
         return results

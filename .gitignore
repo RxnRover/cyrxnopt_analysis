@@ -39,19 +39,19 @@ coverage.xml
 .pytest_cache/
 
 # Build and docs folder/files
-build/*
-dist/*
-sdist/*
-docs/api/*
-docs/_rst/*
-docs/_build/*
+**/build/*
+**/dist/*
+**/sdist/*
+docs/source/api/*
+docs/source/_rst/*
+docs/build/*
 cover/*
 MANIFEST
 
 # Per-project virtualenvs
-.venv*/
-.conda*/
+**/venv*/
+**/*conda*/
 .python-version
 
-# Local files
-data
+# Local script files
+*.sh

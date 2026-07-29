@@ -1,5 +1,7 @@
 from typing import List
 
+import numpy as np
+
 from cyrxnopt_analysis.metrics.Metric import Metric
 from cyrxnopt_analysis.OptimizerResult import OptimizerResult
 
@@ -21,14 +23,31 @@ class SolveTime(Metric):
         :raises RuntimeError: This function must be overridden by chilren.
         """
 
-        self._total_iterations = sum([result.best_iter for result in results])
+        solve_times = np.array(
+            [result.best_iter for result in results], dtype=float
+        )
+
+        self._total_iterations = np.sum(solve_times)
         self._total_cycles = len(results)
 
-        # Only update solve time from 0 if there are successful cycles given
-        if self._total_cycles != 0:
-            self._solve_time = self.total_iterations / self.total_cycles
+        if self._total_cycles > 0:
+            self._solve_time_mean = np.mean(solve_times)
+            self._solve_time_std = np.std(solve_times, ddof=1)
 
-        self._result = self._solve_time
+            # optional
+            self._solve_time_sem = self._solve_time_std / np.sqrt(
+                self._total_cycles
+            )
+
+            self._solve_time_ci95 = 1.96 * self._solve_time_sem
+
+        else:
+            self._solve_time_mean = np.nan
+            self._solve_time_std = np.nan
+            self._solve_time_sem = np.nan
+            self._solve_time_ci95 = np.nan
+
+        self._result = self._solve_time_mean
 
     @property
     def solve_time(self) -> float:
@@ -39,7 +58,7 @@ class SolveTime(Metric):
         :rtype: float
         """
 
-        return self._solve_time
+        return self._solve_time_mean
 
     @property
     def total_cycles(self) -> int:
@@ -62,3 +81,25 @@ class SolveTime(Metric):
         """
 
         return self._total_iterations
+
+    @property
+    def solve_time_std(self) -> int:
+        """Standard deviation of average optimization iterations needed to
+        reach a successful optimization.
+
+        :return: Std.
+        :rtype: float
+        """
+
+        return self._solve_time_std
+
+    @property
+    def solve_time_CI95(self) -> int:
+        """CI 95% of average optimization iterations needed to reach a successful\
+        optimization.
+
+        :return: CI
+        :rtype: float
+        """
+
+        return self._solve_time_ci95
